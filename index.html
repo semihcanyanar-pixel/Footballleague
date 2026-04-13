@@ -16,11 +16,12 @@
   --text:#dde6f0;--text2:#7a8fa5;--text3:#3d5060;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;user-select:none}
-#app{display:flex;height:100vh;overflow:hidden}
+html,body{height:100%;overflow:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);user-select:none}
+#app{display:flex;height:100vh;max-height:100vh;overflow:hidden}
 
 /* LEFT */
-#lp{width:220px;min-width:220px;background:var(–surface);border-right:1px solid var(–border);display:flex;flex-direction:column;overflow:hidden;transition:width .28s,min-width .28s}
+#lp{width:210px;min-width:210px;background:var(–surface);border-right:1px solid var(–border);display:flex;flex-direction:column;height:100vh;overflow:hidden;transition:width .28s,min-width .28s}
 #lp.col{width:0;min-width:0}
 .ph{padding:12px 14px;border-bottom:1px solid var(–border);flex-shrink:0}
 .logo{font-family:‘Bebas Neue’,cursive;font-size:21px;color:var(–accent);letter-spacing:2px}
@@ -30,49 +31,54 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .sb input::placeholder{color:var(–text3)}
 .sb::before{content:‘🔍’;position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:10px;opacity:.4}
 .sl{padding:6px 14px 3px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(–text3);text-transform:uppercase;flex-shrink:0}
-#ll{overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
+#ll{overflow-y:scroll;flex:1;-webkit-overflow-scrolling:touch}
 #ll::-webkit-scrollbar{width:3px}
 #ll::-webkit-scrollbar-thumb{background:var(–border);border-radius:3px}
 .li{display:flex;align-items:center;gap:7px;padding:7px 12px;cursor:pointer;border-radius:6px;margin:1px 6px;transition:background .15s;font-size:12px}
-.li:hover{background:var(–surface2)}
-.li.active{background:rgba(0,229,160,.08);color:var(–accent)}
+.li:hover,.li.active{background:var(–surface2)}
+.li.active{color:var(–accent)}
 .lf{font-size:14px;width:18px;text-align:center;flex-shrink:0}
-.ln{flex:1;font-weight:500}
+.ln{flex:1;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .la{color:var(–text3);font-size:10px;transition:transform .2s;flex-shrink:0}
 .li.open .la{transform:rotate(90deg)}
 .tsl{display:none}.tsl.open{display:block}
-.ti{display:flex;align-items:center;padding:5px 12px 5px 32px;cursor:pointer;font-size:11px;color:var(–text2);transition:background .15s,color .15s;border-radius:6px;margin:1px 6px}
+.ti{display:flex;align-items:center;padding:5px 12px 5px 30px;cursor:pointer;font-size:11px;color:var(–text2);transition:background .15s,color .15s;border-radius:6px;margin:1px 6px}
 .ti:hover{background:var(–surface2);color:var(–text)}
 .ti.active{color:var(–accent);font-weight:600}
 
 /* MAIN */
-#main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-#topbar{height:50px;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid var(–border);background:var(–surface);flex-shrink:0}
+#main{flex:1;display:flex;flex-direction:column;height:100vh;overflow:hidden;min-width:0}
+#topbar{height:50px;display:flex;align-items:center;padding:0 10px;gap:7px;border-bottom:1px solid var(–border);background:var(–surface);flex-shrink:0}
 .hb{background:none;border:none;color:var(–text2);font-size:20px;cursor:pointer;padding:4px;flex-shrink:0}
-#tt{font-family:‘Bebas Neue’,cursive;font-size:19px;letter-spacing:1px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tt{font-family:‘Bebas Neue’,cursive;font-size:18px;letter-spacing:1px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#mode-btn{display:flex;align-items:center;gap:4px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;padding:5px 9px;cursor:pointer;font-size:11px;font-weight:700;color:var(–text2);transition:all .2s;flex-shrink:0}
+#mode-btn.sm{color:var(–accent2);border-color:var(–accent2)}
+#mode-btn.sw{color:var(–yellow);border-color:var(–yellow)}
+#fsel{display:flex;align-items:center;gap:4px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;padding:5px 9px;cursor:pointer;font-size:11px;font-weight:700;color:var(–accent);flex-shrink:0}
 
-/* MODE TOGGLE */
-#mode-btn{
-display:flex;align-items:center;gap:5px;
-background:var(–surface2);border:1px solid var(–border);
-border-radius:8px;padding:5px 10px;cursor:pointer;
-font-size:11px;font-weight:700;color:var(–text2);
-transition:all .2s;flex-shrink:0;
+/* PITCH CONTAINER - key fix for bench scroll */
+#pc{
+flex:1;
+display:flex;
+flex-direction:column;
+padding:8px;
+gap:7px;
+overflow:hidden;
+min-height:0;
 }
-#mode-btn.stats-mode{color:var(–accent2);border-color:var(–accent2);background:rgba(0,136,255,.08)}
-#mode-btn.swap-mode{color:var(–yellow);border-color:var(–yellow);background:rgba(251,191,36,.08)}
-#mode-icon{font-size:14px}
-
-#fsel{display:flex;align-items:center;gap:4px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;color:var(–accent);transition:border-color .2s;flex-shrink:0}
-#fsel:hover{border-color:var(–accent)}
-
-/* PITCH */
-#pc{flex:1;display:flex;flex-direction:column;overflow:hidden;padding:8px;gap:7px}
-#pw{flex:1;position:relative;min-height:0}
+#pw{
+flex:1;
+position:relative;
+min-height:0;
+overflow:hidden;
+}
 #pitch{
-width:100%;height:100%;border-radius:12px;position:relative;overflow:hidden;
+position:absolute;
+inset:0;
+border-radius:12px;
+overflow:hidden;
 border:2px solid rgba(255,255,255,.08);
-box-shadow:0 8px 32px rgba(0,0,0,.6),inset 0 0 60px rgba(0,0,0,.2);
+box-shadow:0 8px 32px rgba(0,0,0,.6);
 background:
 repeating-linear-gradient(0deg,transparent,transparent 50px,rgba(0,0,0,.04) 50px,rgba(0,0,0,.04) 100px),
 linear-gradient(180deg,#1a6b1a,#1e7a1e 35%,#217821 65%,#1a6b1a);
@@ -87,74 +93,81 @@ linear-gradient(180deg,#1a6b1a,#1e7a1e 35%,#217821 65%,#1a6b1a);
 
 /* PLAYER CARD */
 .pcard{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;z-index:10;touch-action:none}
-/* FIX 1: Photo fitting */
-.pcard .av{
-width:52px;height:52px;border-radius:50%;
-overflow:hidden;border:2.5px solid rgba(255,255,255,.8);
-background:var(–surface2);position:relative;
-box-shadow:0 3px 12px rgba(0,0,0,.6);
-transition:border-color .2s,transform .15s,box-shadow .15s;
-flex-shrink:0;
-}
-.pcard:hover .av{border-color:var(–accent);transform:scale(1.07)}
-.pcard.drag .av{border-color:var(–accent);box-shadow:0 0 20px rgba(0,229,160,.5);transform:scale(1.1)}
-.pcard.selected .av{border-color:#fff;border-width:3px;box-shadow:0 0 0 3px var(–yellow),0 4px 16px rgba(251,191,36,.5);transform:scale(1.12)}
+.av{width:50px;height:50px;border-radius:50%;overflow:hidden;border:2.5px solid rgba(255,255,255,.8);background:var(–surface2);position:relative;box-shadow:0 3px 12px rgba(0,0,0,.6);transition:border-color .2s,transform .15s,box-shadow .15s;flex-shrink:0}
+.pcard:hover .av,.pcard.drag .av{border-color:var(–accent);transform:scale(1.07)}
+.pcard.selected .av{border-color:var(–yellow);border-width:3px;box-shadow:0 0 0 3px var(–yellow);transform:scale(1.1)}
 .pcard.selected .pname{background:var(–yellow);color:#000}
-.pcard.swap-target .av{border-color:rgba(255,255,255,.4);opacity:.8}
-
-/* FIX 1: Image fills circle perfectly */
-.av img{
-width:100%;height:100%;
-object-fit:cover;
-object-position:center top;
-display:block;
-}
-.av-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:18px;color:var(–accent)}
+.av img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.av-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:17px;color:var(–accent)}
 .posbadge{position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);background:var(–accent);color:#000;font-size:7px;font-weight:900;padding:1px 4px;border-radius:3px;white-space:nowrap;z-index:1}
-.pname{background:rgba(0,0,0,.85);backdrop-filter:blur(6px);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap;max-width:82px;overflow:hidden;text-overflow:ellipsis;text-align:center;transition:background .2s,color .2s}
-.pval{background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.3);color:var(–gold);font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;white-space:nowrap}
+.pname{background:rgba(0,0,0,.85);backdrop-filter:blur(4px);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap;max-width:80px;overflow:hidden;text-overflow:ellipsis;text-align:center;transition:background .2s,color .2s}
+/* NO .pval — removed from pitch cards */
 
 /* LOADING */
 #lo{position:absolute;inset:0;background:rgba(8,12,23,.9);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;border-radius:12px;gap:12px}
-.spin{width:34px;height:34px;border:3px solid var(–border);border-top-color:var(–accent);border-radius:50%;animation:spin .8s linear infinite}
+.spin{width:32px;height:32px;border:3px solid var(–border);border-top-color:var(–accent);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .ltext{font-size:13px;color:var(–text2);text-align:center;max-width:200px;line-height:1.5}
 #es{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(–text3);pointer-events:none}
 
-/* FIX 4: BENCH - scrollable */
+/* SWAP HINT */
+#swaphint{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(251,191,36,.15);backdrop-filter:blur(8px);border:1px solid var(–yellow);border-radius:16px;padding:5px 14px;font-size:11px;font-weight:700;color:var(–yellow);pointer-events:none;white-space:nowrap;z-index:20;opacity:0;transition:opacity .2s}
+#swaphint.show{opacity:1}
+
+/* BENCH - FIXED SCROLL */
 #bp{
-height:112px;background:var(–surface);border-radius:10px;
-border:1px solid var(–border);display:flex;flex-direction:column;
-overflow:hidden;flex-shrink:0;
+height:108px;
+flex-shrink:0;
+background:var(–surface);
+border-radius:10px;
+border:1px solid var(–border);
+display:flex;
+flex-direction:column;
+overflow:hidden;
 }
-.bh{padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(–text3);text-transform:uppercase;border-bottom:1px solid var(–border);flex-shrink:0}
+.bh{
+padding:5px 12px;
+font-size:10px;font-weight:700;letter-spacing:1.5px;
+color:var(–text3);text-transform:uppercase;
+border-bottom:1px solid var(–border);
+flex-shrink:0;
+height:26px;
+display:flex;align-items:center;
+}
 #bs{
-display:flex;gap:8px;padding:6px 10px;
-overflow-x:auto;overflow-y:hidden;
-flex:1;align-items:center;
+flex:1;
+display:flex;
+flex-direction:row;
+align-items:center;
+gap:8px;
+padding:6px 10px;
+overflow-x:scroll;
+overflow-y:hidden;
 -webkit-overflow-scrolling:touch;
+scrollbar-width:thin;
 }
 #bs::-webkit-scrollbar{height:3px}
 #bs::-webkit-scrollbar-thumb{background:var(–border);border-radius:3px}
-.bpl{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;min-width:50px;flex-shrink:0;transition:transform .15s}
-.bpl:hover{transform:translateY(-2px)}
-/* FIX 1: Bench avatar */
-.bav{
-width:44px;height:44px;border-radius:50%;overflow:hidden;
-border:2px solid var(–border);background:var(–surface2);
-transition:border-color .2s,box-shadow .2s;flex-shrink:0;
+.bpl{
+display:flex;flex-direction:column;align-items:center;gap:2px;
+cursor:pointer;
+width:50px;min-width:50px;flex-shrink:0;
+transition:transform .15s;
 }
-.bpl:hover .bav{border-color:var(–accent)}
+.bpl:hover{transform:translateY(-2px)}
 .bpl.selected .bav{border-color:var(–yellow);box-shadow:0 0 0 2px var(–yellow)}
 .bpl.selected .bname{color:var(–yellow)}
+.bav{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid var(–border);background:var(–surface2);transition:border-color .2s;flex-shrink:0}
+.bpl:hover .bav{border-color:var(–accent)}
 .bav img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .bav-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:13px;color:var(–accent)}
-.bname{font-size:9px;color:var(–text2);text-align:center;white-space:nowrap;max-width:52px;overflow:hidden;text-overflow:ellipsis}
+.bname{font-size:9px;color:var(–text2);text-align:center;white-space:nowrap;width:50px;overflow:hidden;text-overflow:ellipsis}
 .bpos{font-size:8px;color:var(–text3);text-align:center}
 
-/* FORMATION MODAL */
-#fmod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center}
-#fmod.open{display:flex}
+/* MODALS */
+#fmod,#smod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center;padding:14px}
+#fmod.open,#smod.open{display:flex}
+#smod{z-index:300}
 .fbox{background:var(–surface);border:1px solid var(–border);border-radius:18px;padding:20px;width:320px;max-width:92vw}
 .ftitle{font-family:‘Bebas Neue’,cursive;font-size:20px;letter-spacing:2px;margin-bottom:12px;color:var(–accent)}
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -162,13 +175,9 @@ transition:border-color .2s,box-shadow .2s;flex-shrink:0;
 .fbtn:hover,.fbtn.active{border-color:var(–accent);color:var(–accent);background:rgba(0,229,160,.08)}
 .fclose{margin-top:12px;width:100%;background:none;border:1px solid var(–border);border-radius:8px;color:var(–text2);font-size:13px;padding:9px;cursor:pointer;font-family:‘DM Sans’,sans-serif}
 
-/* STATS MODAL */
-#smod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);z-index:300;align-items:center;justify-content:center;padding:12px}
-#smod.open{display:flex}
-.sbox{background:var(–surface);border:1px solid var(–border);border-radius:20px;width:500px;max-width:96vw;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.sbox{background:var(–surface);border:1px solid var(–border);border-radius:20px;width:500px;max-width:96vw;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;position:relative}
 .shdr{display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid var(–border);background:linear-gradient(135deg,var(–surface2),var(–surface));flex-shrink:0}
-/* FIX 1: Stats modal avatar */
-.savatar{width:70px;height:70px;border-radius:50%;overflow:hidden;border:3px solid var(–accent);flex-shrink:0;background:var(–surface2)}
+.savatar{width:68px;height:68px;border-radius:50%;overflow:hidden;border:3px solid var(–accent);flex-shrink:0;background:var(–surface2)}
 .savatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .savatar-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:24px;color:var(–accent)}
 .sinfo{flex:1;min-width:0}
@@ -208,22 +217,10 @@ transition:border-color .2s,box-shadow .2s;flex-shrink:0;
 .mdate{color:var(–text3)}.mval{font-weight:700;color:var(–gold)}
 .sload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:36px 0;color:var(–text2)}
 .titem{display:flex;align-items:center;gap:8px;padding:8px 11px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;margin-bottom:5px;font-size:12px}
-.tdate{color:var(–text3);min-width:58px;font-size:11px}
-.tclub{flex:1;font-weight:600}
-.tfee{color:var(–gold);font-weight:700}
+.tdate{color:var(–text3);min-width:58px;font-size:11px}.tclub{flex:1;font-weight:600}.tfee{color:var(–gold);font-weight:700}
 
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:var(–surface);border:1px solid var(–border);border-radius:10px;padding:8px 16px;font-size:13px;z-index:500;transition:transform .3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center}
 #toast.show{transform:translateX(-50%) translateY(0)}
-
-/* Swap hint */
-#swaphint{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(251,191,36,.15);backdrop-filter:blur(8px);border:1px solid var(–yellow);border-radius:16px;padding:5px 14px;font-size:11px;font-weight:700;color:var(–yellow);pointer-events:none;white-space:nowrap;z-index:20;opacity:0;transition:opacity .2s}
-#swaphint.show{opacity:1}
-
-@media(max-width:768px){
-#lp{width:190px;min-width:190px}
-.av{width:46px;height:46px}
-.pname{font-size:9px;max-width:70px}
-}
 </style>
 
 </head>
@@ -239,15 +236,11 @@ transition:border-color .2s,box-shadow .2s;flex-shrink:0;
     <div id="topbar">
       <button class="hb" onclick="togglePanel()">☰</button>
       <div id="tt">Takım Seç</div>
-      <!-- FIX 2: Mode toggle button -->
-      <div id="mode-btn" class="stats-mode" onclick="toggleMode()">
-        <span id="mode-icon">📊</span>
-        <span id="mode-label">İstatistik</span>
+      <div id="mode-btn" class="sm" onclick="toggleMode()">
+        <span id="mi">📊</span><span id="ml">İstatistik</span>
       </div>
       <div id="fsel" onclick="openFM()">
-        <span style="font-size:13px">⚽</span>
-        <span id="cfm">4-3-3</span>
-        <span style="font-size:9px;opacity:.7">▼</span>
+        <span>⚽</span><span id="cfm">4-3-3</span><span style="font-size:9px;opacity:.6">▼</span>
       </div>
     </div>
     <div id="pc">
@@ -257,12 +250,14 @@ transition:border-color .2s,box-shadow .2s;flex-shrink:0;
           <div class="ppt"></div><div class="ppb"></div>
           <div class="pgt"></div><div class="pgb"></div>
           <div id="lo"><div class="spin"></div><div class="ltext" id="ltxt">Yükleniyor...</div></div>
-          <div id="es"><div style="font-size:44px;opacity:.2">⚽</div><div style="font-size:13px;opacity:.5">Sol panelden bir takım seç</div></div>
+          <div id="es"><div style="font-size:42px;opacity:.2">⚽</div><div style="font-size:13px;opacity:.5">Sol panelden bir takım seç</div></div>
           <div id="swaphint">Değiştirmek istediğin oyuncuya dokun</div>
         </div>
       </div>
-      <!-- FIX 4: Bench with proper scroll -->
-      <div id="bp"><div class="bh">🪑 Yedek Oyuncular</div><div id="bs"></div></div>
+      <div id="bp">
+        <div class="bh">🪑 Yedek Oyuncular</div>
+        <div id="bs"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -287,37 +282,30 @@ transition:border-color .2s,box-shadow .2s;flex-shrink:0;
 <div id="toast"></div>
 
 <script>
-// ══════════════════════════
-// CONFIG
-// ══════════════════════════
 const PROXY = 'https://footballiq-proxy.semihcanyanar.workers.dev';
+
 async function tmGet(path) {
-  const r = await fetch(`${PROXY}${path}`, {signal:AbortSignal.timeout(12000)});
-  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  const r = await fetch(PROXY + path, {signal: AbortSignal.timeout(12000)});
+  if (!r.ok) throw new Error('HTTP ' + r.status);
   return r.json();
 }
 
-// ══════════════════════════
-// MODE: stats vs swap
-// ══════════════════════════
-let appMode = 'stats'; // 'stats' | 'swap'
+// MODE
+let appMode = 'stats';
 function toggleMode() {
   appMode = appMode === 'stats' ? 'swap' : 'stats';
   const btn = document.getElementById('mode-btn');
-  const icon = document.getElementById('mode-icon');
-  const label = document.getElementById('mode-label');
+  const mi = document.getElementById('mi');
+  const ml = document.getElementById('ml');
   if (appMode === 'stats') {
-    btn.className = 'stats-mode'; icon.textContent = '📊'; label.textContent = 'İstatistik';
+    btn.className = 'sm'; mi.textContent = '📊'; ml.textContent = 'İstatistik';
     clearSwapUI();
   } else {
-    btn.className = 'swap-mode'; icon.textContent = '🔄'; label.textContent = 'Değiştir';
+    btn.className = 'sw'; mi.textContent = '🔄'; ml.textContent = 'Değiştir';
   }
-  document.getElementById('mode-btn').id = 'mode-btn'; // force repaint
 }
 
-// ══════════════════════════
-// LEAGUES & TEAMS
-// ══════════════════════════
+// DATA
 const LEAGUES = [
   {id:'TR1',name:'Süper Lig',flag:'🇹🇷'},{id:'TR2',name:'TFF 1. Lig',flag:'🇹🇷'},
   {id:'GB1',name:'Premier League',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},{id:'GB2',name:'Championship',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},
@@ -347,17 +335,8 @@ const TEAMS = {
 };
 LEAGUES.forEach(l=>{if(!TEAMS[l.id])TEAMS[l.id]=[]});
 
-// FIX 3: Position ordering for smart lineup
 const POSMAP={'Goalkeeper':'GK','Defender':'DEF','Centre-Back':'CB','Left-Back':'LB','Right-Back':'RB','Defensive Midfield':'DM','Central Midfield':'CM','Attacking Midfield':'AM','Left Winger':'LW','Right Winger':'RW','Forward':'FW','Centre-Forward':'CF','Left Midfield':'LM','Right Midfield':'RM','Second Striker':'SS','Midfielder':'MF','Winger':'WG'};
-
-// Position priority for lineup selection
-const POS_PRIORITY = {
-  'Goalkeeper':0,
-  'Left-Back':1,'Right-Back':1,'Centre-Back':1,'Defender':1,
-  'Defensive Midfield':2,'Central Midfield':2,'Left Midfield':2,'Right Midfield':2,
-  'Attacking Midfield':3,'Left Winger':3,'Right Winger':3,'Winger':3,'Second Striker':3,
-  'Centre-Forward':4,'Forward':4,'Midfielder':2
-};
+const POS_PRI={'Goalkeeper':0,'Left-Back':1,'Right-Back':1,'Centre-Back':1,'Defender':1,'Defensive Midfield':2,'Central Midfield':2,'Left Midfield':2,'Right Midfield':2,'Attacking Midfield':3,'Left Winger':3,'Right Winger':3,'Winger':3,'Second Striker':3,'Centre-Forward':4,'Forward':4,'Midfielder':2};
 
 const FLIST=['4-4-2','4-3-3','4-2-3-1','3-5-2','3-4-3','5-3-2','5-4-1','4-1-4-1','4-5-1','4-3-2-1','3-6-1','4-2-2-2'];
 const FSLOTS={
@@ -380,9 +359,10 @@ const SS={player:null,si:0,ci:0,cache:{}};
 const SEASONS=['2024/25','2023/24','2022/23','2021/22','2020/21'];
 const COMPS=['Lig','Kupa','Şampiyonlar Ligi','Uluslararası','Toplam'];
 const tcache={};
+let allSquad=[];
 
-function initials(n){return(n||'?').trim().split(/\s+/).map(w=>w[0]||'').join('').substring(0,2).toUpperCase()}
-function lastName(n){const p=(n||'').trim().split(/\s+/);return p.length>1?p[p.length-1]:n}
+function ini(n){return(n||'?').trim().split(/\s+/).map(w=>w[0]||'').join('').substring(0,2).toUpperCase()}
+function lastn(n){const p=(n||'').trim().split(/\s+/);return p.length>1?p[p.length-1]:n}
 function parseMV(v){if(!v||v==='-')return 0;const n=parseFloat(v.replace(/[^0-9.]/g,''));if(v.includes('m')||v.includes('M'))return n*1e6;if(v.includes('k')||v.includes('K'))return n*1e3;return n||0}
 
 function init(){renderLeagues();renderFormations()}
@@ -394,21 +374,24 @@ function renderLeagues(){
     </div>
     <div class="tsl" id="ts-${l.id}"></div>`).join('');
 }
+
 async function toggleL(id){
-  const open=document.getElementById(`ts-${id}`).classList.contains('open');
+  const open=document.getElementById('ts-'+id).classList.contains('open');
   document.querySelectorAll('.tsl').forEach(s=>s.classList.remove('open'));
   document.querySelectorAll('.li').forEach(i=>i.classList.remove('open','active'));
   if(open)return;
-  document.getElementById(`li-${id}`).classList.add('open','active');
-  document.getElementById(`ts-${id}`).classList.add('open');
-  if(!tcache[id]){tcache[id]=TEAMS[id]||[];renderTeamList(id)}
+  document.getElementById('li-'+id).classList.add('open','active');
+  document.getElementById('ts-'+id).classList.add('open');
+  if(!tcache[id]){tcache[id]=TEAMS[id]||[];renderTL(id)}
 }
-function renderTeamList(id){
+
+function renderTL(id){
   const teams=tcache[id]||[];
-  const ts=document.getElementById(`ts-${id}`);
-  if(!teams.length){ts.innerHTML='<div style="padding:6px 12px 6px 30px;font-size:11px;color:var(--text3)">Takım bulunamadı</div>';return}
+  const ts=document.getElementById('ts-'+id);
+  if(!teams.length){ts.innerHTML='<div style="padding:5px 12px 5px 28px;font-size:11px;color:var(--text3)">Takım bulunamadı</div>';return}
   ts.innerHTML=teams.map(t=>`<div class="ti" id="ti-${t.id}" onclick="selectTeam('${t.id}','${t.n.replace(/'/g,"&#39;")}')">${t.n}</div>`).join('');
 }
+
 function filterTeams(q){
   q=q.toLowerCase();
   document.querySelectorAll('.ti').forEach(e=>e.style.display=!q||e.textContent.toLowerCase().includes(q)?'':'none');
@@ -417,71 +400,64 @@ function filterTeams(q){
 
 async function selectTeam(id,name){
   document.querySelectorAll('.ti').forEach(i=>i.classList.remove('active'));
-  const el=document.getElementById(`ti-${id}`);if(el)el.classList.add('active');
+  const el=document.getElementById('ti-'+id);if(el)el.classList.add('active');
   document.getElementById('tt').textContent=name;
   document.getElementById('es').style.display='none';
   ST.overrides={};ST.selected=null;clearSwapUI();
-  showL(true,`${name} kadrosu yükleniyor...`);
-  const squad=await loadSquad(id,name);
-  // FIX 3: Smart lineup by position + market value
-  const lineup=smartLineup(squad);
-  ST.starters=lineup.starters;
-  ST.bench=lineup.bench;
-  renderPitch();renderBench();showL(false);
-  showToast(`${name} — ${squad.length} oyuncu yüklendi ✓`);
-  loadPhotos(squad);
-}
+  showL(true,name+' kadrosu yükleniyor...');
 
-// FIX 3: Smart lineup - pick best 11 by position groups
-function smartLineup(squad) {
-  // Sort each position group by market value descending
-  const byPos = {};
-  squad.forEach(p => {
-    const pg = POS_PRIORITY[p.pos] ?? 2;
-    if (!byPos[pg]) byPos[pg] = [];
-    byPos[pg].push(p);
-  });
-  Object.values(byPos).forEach(arr => arr.sort((a,b) => parseMV(b.value) - parseMV(a.value)));
-
-  // Need: 1 GK, 4 DEF (prio 1), 3 MID (prio 2), 3 FWD (prio 3+4)
-  const gks   = (byPos[0]||[]).slice(0,1);
-  const defs  = (byPos[1]||[]).slice(0,4);
-  const mids  = (byPos[2]||[]).slice(0,3);
-  const fwds  = [...(byPos[3]||[]), ...(byPos[4]||[])].slice(0,3);
-
-  let starters = [...gks,...defs,...mids,...fwds];
-
-  // If not 11, fill from remaining
-  if(starters.length < 11){
-    const used = new Set(starters.map(p=>p.id));
-    const rest = squad.filter(p=>!used.has(p.id)).sort((a,b)=>parseMV(b.value)-parseMV(a.value));
-    starters = [...starters, ...rest].slice(0,11);
-  }
-
-  const starterIds = new Set(starters.map(p=>p.id));
-  const bench = squad.filter(p=>!starterIds.has(p.id));
-  return {starters, bench};
-}
-
-async function loadSquad(clubId,name){
   try{
-    const json=await tmGet(`/clubs/squad?id=${clubId}`);
+    const json=await tmGet('/clubs/squad?id='+id);
     const players=json.data;
     if(!Array.isArray(players)||players.length<5) throw new Error('empty');
-    return players.map(p=>({
+    allSquad=players.map(p=>({
       id:p.id||'',name:p.name||'?',pos:p.position||'Midfielder',
       short:POSMAP[p.position]||(p.position||'MF').substring(0,2).toUpperCase(),
       imgSrc:'',value:p.marketValue||'-',number:p.number||'',
       age:p.age?String(p.age):'',nat:p.nationality||'',foot:'',height:'',dob:''
     }));
-  }catch(e){return mockSquad(name)}
+    showToast(name+' — '+allSquad.length+' oyuncu yüklendi ✓');
+  }catch(e){
+    allSquad=mockSquad(name);
+    showToast(name+' — örnek kadro gösteriliyor');
+  }
+
+  const lineup=smartLineup(allSquad);
+  ST.starters=lineup.starters;
+  ST.bench=lineup.bench;
+  renderPitch();
+  renderBench();
+  showL(false);
+  loadPhotos(allSquad);
+}
+
+function smartLineup(squad){
+  const byPri={};
+  squad.forEach(p=>{
+    const pr=POS_PRI[p.pos]??2;
+    if(!byPri[pr])byPri[pr]=[];
+    byPri[pr].push(p);
+  });
+  Object.values(byPri).forEach(arr=>arr.sort((a,b)=>parseMV(b.value)-parseMV(a.value)));
+  const gks=(byPri[0]||[]).slice(0,1);
+  const defs=(byPri[1]||[]).slice(0,4);
+  const mids=(byPri[2]||[]).slice(0,3);
+  const fwds=[...(byPri[3]||[]),...(byPri[4]||[])].slice(0,3);
+  let starters=[...gks,...defs,...mids,...fwds];
+  if(starters.length<11){
+    const used=new Set(starters.map(p=>p.id));
+    const rest=squad.filter(p=>!used.has(p.id)).sort((a,b)=>parseMV(b.value)-parseMV(a.value));
+    starters=[...starters,...rest].slice(0,11);
+  }
+  const sids=new Set(starters.map(p=>p.id));
+  return{starters,bench:squad.filter(p=>!sids.has(p.id))};
 }
 
 async function loadPhotos(squad){
   for(let i=0;i<squad.length;i++){
     const p=squad[i];if(!p.id)continue;
     try{
-      const json=await tmGet(`/players/profile?id=${p.id}`);
+      const json=await tmGet('/players/profile?id='+p.id);
       const d=json.data||json;
       const url=d.image||'';
       if(url&&!url.startsWith('data:')){
@@ -490,29 +466,27 @@ async function loadPhotos(squad){
         if(d.height)p.height=d.height;
         if(d.foot)p.foot=d.foot;
         if(d.marketValue&&p.value==='-')p.value=d.marketValue;
-        refreshPhoto(p.id,url,p.name,p.short);
+        // Update pitch card
+        const card=document.querySelector('.pcard[data-pid="'+p.id+'"]');
+        if(card){
+          const av=card.querySelector('.av');
+          const badge=av.querySelector('.posbadge')?.textContent||p.short;
+          av.innerHTML='<img src="'+url+'" onerror="this.style.display=\'none\'" alt="'+p.name+'"><div class="posbadge">'+badge+'</div>';
+        }
+        // Update bench card
+        const bpl=document.querySelector('.bpl[data-pid="'+p.id+'"]');
+        if(bpl){
+          bpl.querySelector('.bav').innerHTML='<img src="'+url+'" onerror="this.style.display=\'none\'" alt="'+p.name+'">';
+        }
+        // Update open stats modal
         if(SS.player&&SS.player.id===p.id){
           SS.player.imgSrc=url;
           const sa=document.querySelector('.savatar');
-          if(sa)sa.innerHTML=`<img src="${url}" onerror="this.style.display='none'" alt="${p.name}">`;
+          if(sa)sa.innerHTML='<img src="'+url+'" onerror="this.style.display=\'none\'" alt="'+p.name+'">';
         }
       }
     }catch(e){}
-    await new Promise(r=>setTimeout(r,150));
-  }
-}
-
-function refreshPhoto(pid,url,name,short){
-  const card=document.querySelector(`.pcard[data-pid="${pid}"]`);
-  if(card){
-    const av=card.querySelector('.av');
-    const badge=av.querySelector('.posbadge')?.textContent||short;
-    av.innerHTML=`<img src="${url}" onerror="this.style.display='none'" alt="${name}"><div class="posbadge">${badge}</div>`;
-  }
-  const bpl=document.querySelector(`.bpl[data-pid="${pid}"]`);
-  if(bpl){
-    const bav=bpl.querySelector('.bav');
-    bav.innerHTML=`<img src="${url}" onerror="this.style.display='none'" alt="${name}">`;
+    await new Promise(r=>setTimeout(r,180));
   }
 }
 
@@ -530,31 +504,20 @@ function makeCard(p,idx,x,y){
   const d=document.createElement('div');
   d.className='pcard';d.style.left=x+'%';d.style.top=y+'%';
   d.dataset.pid=p.id;d.dataset.idx=idx;
-  const imgContent=p.imgSrc
-    ?`<img src="${p.imgSrc}" onerror="this.style.display='none'" alt="${p.name}">`
-    :`<div class="av-init">${initials(p.name)}</div>`;
-  d.innerHTML=`<div class="av">${imgContent}<div class="posbadge">${p.short}</div></div><div class="pname">${lastName(p.name)}</div><div class="pval">${p.value||'-'}</div>`;
-  d.addEventListener('click',e=>{e.stopPropagation();handleCardClick('pitch',idx,p,d)});
-  setupDrag(d,idx);return d;
+  const img=p.imgSrc?'<img src="'+p.imgSrc+'" onerror="this.style.display=\'none\'" alt="'+p.name+'">':`<div class="av-init">${ini(p.name)}</div>`;
+  // NO value shown on pitch card
+  d.innerHTML=`<div class="av">${img}<div class="posbadge">${p.short}</div></div><div class="pname">${lastn(p.name)}</div>`;
+  d.addEventListener('click',e=>{e.stopPropagation();handleClick('pitch',idx,p,d)});
+  setupDrag(d,idx);
+  return d;
 }
 
-// FIX 2: Mode-aware card click
-function handleCardClick(type,idx,p,el){
-  if(appMode==='stats'){
-    openSM(p);return;
-  }
-  // Swap mode
+function handleClick(type,idx,p,el){
+  if(appMode==='stats'){openSM(p);return}
   if(!ST.selected){
-    ST.selected={type,idx};
-    el.classList.add('selected');
-    showSwapHint(true);
-    // Highlight other cards as targets
-    document.querySelectorAll('.pcard').forEach(c=>{
-      if(!(c.dataset.idx==idx&&type==='pitch'))c.classList.add('swap-target');
-    });
-    document.querySelectorAll('.bpl').forEach(b=>{
-      if(!(b.dataset.idx==idx&&type==='bench'))b.classList.add('swap-target');
-    });
+    ST.selected={type,idx};el.classList.add('selected');showSwapHint(true);
+    document.querySelectorAll('.pcard').forEach(c=>{if(!(parseInt(c.dataset.idx)===idx&&type==='pitch'))c.classList.add('swap-target')});
+    document.querySelectorAll('.bpl').forEach(b=>{if(!(parseInt(b.dataset.idx)===idx&&type==='bench'))b.classList.add('swap-target')});
     return;
   }
   if(ST.selected.type===type&&ST.selected.idx==idx){clearSwapUI();return}
@@ -567,7 +530,7 @@ function doSwap(a,b){
   if(a.type==='pitch')ST.starters[a.idx]=pb; else ST.bench[a.idx]=pb;
   if(b.type==='pitch')ST.starters[b.idx]=pa; else ST.bench[b.idx]=pa;
   clearSwapUI();renderPitch();renderBench();
-  showToast(`${lastName(pa.name)} ↔ ${lastName(pb.name)}`);
+  showToast(lastn(pa.name)+' ↔ '+lastn(pb.name));
 }
 function clearSwapUI(){
   ST.selected=null;
@@ -581,7 +544,7 @@ function setupDrag(card,idx){
   let drag=false,sx,sy,sl,st2,ht;
   const gp=()=>document.getElementById('pitch');
   const start=(cx,cy)=>{ht=setTimeout(()=>{drag=true;card.classList.add('drag');card.dataset.dragged='1';sl=parseFloat(card.style.left);st2=parseFloat(card.style.top);sx=cx;sy=cy},350)};
-  const move=(cx,cy)=>{if(!drag)return;const r=gp().getBoundingClientRect();const nx=Math.max(4,Math.min(96,sl+(cx-sx)/r.width*100));const ny=Math.max(4,Math.min(96,st2+(cy-sy)/r.height*100));card.style.left=nx+'%';card.style.top=ny+'%';ST.overrides[idx]={x:nx,y:ny}};
+  const move=(cx,cy)=>{if(!drag)return;const r=gp().getBoundingClientRect();card.style.left=Math.max(4,Math.min(96,sl+(cx-sx)/r.width*100))+'%';card.style.top=Math.max(4,Math.min(96,st2+(cy-sy)/r.height*100))+'%';ST.overrides[idx]={x:parseFloat(card.style.left),y:parseFloat(card.style.top)}};
   const end=()=>{clearTimeout(ht);drag=false;card.classList.remove('drag')};
   card.addEventListener('touchstart',e=>start(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
   card.addEventListener('touchmove',e=>{e.preventDefault();move(e.touches[0].clientX,e.touches[0].clientY)},{passive:false});
@@ -592,27 +555,20 @@ function setupDrag(card,idx){
 }
 
 function renderBench(){
-  document.getElementById('bs').innerHTML=ST.bench.map((p,i)=>{
-    const imgContent=p.imgSrc
-      ?`<img src="${p.imgSrc}" onerror="this.style.display='none'" alt="${p.name}">`
-      :`<div class="bav-init">${initials(p.name)}</div>`;
-    return`<div class="bpl" data-pid="${p.id}" data-idx="${i}" onclick="handleBenchClick(${i},this)">
-      <div class="bav">${imgContent}</div>
-      <div class="bname">${lastName(p.name)}</div>
-      <div class="bpos">${p.short}</div>
-    </div>`;
+  const bs=document.getElementById('bs');
+  bs.innerHTML=ST.bench.map((p,i)=>{
+    const img=p.imgSrc?'<img src="'+p.imgSrc+'" onerror="this.style.display=\'none\'" alt="'+p.name+'">':`<div class="bav-init">${ini(p.name)}</div>`;
+    return`<div class="bpl" data-pid="${p.id}" data-idx="${i}" onclick="handleBenchClick(${i},this)"><div class="bav">${img}</div><div class="bname">${lastn(p.name)}</div><div class="bpos">${p.short}</div></div>`;
   }).join('');
 }
 
 function handleBenchClick(idx,el){
-  if(appMode==='stats'){openSM(ST.bench[idx]);return}
   const p=ST.bench[idx];
+  if(appMode==='stats'){openSM(p);return}
   if(!ST.selected){
-    ST.selected={type:'bench',idx};
-    el.classList.add('selected');
-    showSwapHint(true);
+    ST.selected={type:'bench',idx};el.classList.add('selected');showSwapHint(true);
     document.querySelectorAll('.pcard').forEach(c=>c.classList.add('swap-target'));
-    document.querySelectorAll('.bpl').forEach(b=>{if(b.dataset.idx!=idx)b.classList.add('swap-target')});
+    document.querySelectorAll('.bpl').forEach(b=>{if(parseInt(b.dataset.idx)!==idx)b.classList.add('swap-target')});
     return;
   }
   if(ST.selected.type==='bench'&&ST.selected.idx==idx){clearSwapUI();return}
@@ -627,11 +583,9 @@ function closeFM(){document.getElementById('fmod').classList.remove('open')}
 function openSM(p){
   if(typeof p==='string'){try{p=JSON.parse(p)}catch(e){return}}
   SS.player=p;SS.si=0;SS.ci=0;SS.cache={};
-  const imgContent=p.imgSrc
-    ?`<img src="${p.imgSrc}" onerror="this.style.display='none'" alt="${p.name}">`
-    :`<div class="savatar-init">${initials(p.name)}</div>`;
+  const img=p.imgSrc?'<img src="'+p.imgSrc+'" onerror="this.style.display=\'none\'" alt="'+p.name+'">':`<div class="savatar-init">${ini(p.name)}</div>`;
   document.getElementById('smhdr').innerHTML=`
-    <div class="savatar">${imgContent}</div>
+    <div class="savatar">${img}</div>
     <div class="sinfo">
       <div class="sname">${p.name}</div>
       <div class="smeta">
@@ -657,7 +611,7 @@ function switchT(i,el){document.querySelectorAll('.stab').forEach(t=>t.classList
 async function drawTab(i){
   const p=SS.player;
   if(i===0||i===1){
-    const key=`s_${p.id}_${SS.si}_${SS.ci}`;
+    const key='s_'+p.id+'_'+SS.si+'_'+SS.ci;
     if(!SS.cache[key]){
       document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>Yükleniyor...</div></div>';
       SS.cache[key]=mockStats(p,SEASONS[SS.si],COMPS[SS.ci]);
@@ -671,11 +625,10 @@ async function drawTab(i){
 async function drawTransfers(p){
   document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>Transferler yükleniyor...</div></div>';
   try{
-    const d=await tmGet(`/players/transfers?id=${p.id}`);
+    const d=await tmGet('/players/transfers?id='+p.id);
     const list=d.data||d.transfers||[];
     if(!Array.isArray(list)||!list.length)throw new Error('empty');
-    document.getElementById('smbody').innerHTML=
-      '<div style="font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase">Transfer Geçmişi</div>'+
+    document.getElementById('smbody').innerHTML='<div style="font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase">Transfer Geçmişi</div>'+
       list.slice(0,15).map(t=>`<div class="titem"><div class="tdate">${t.date||t.season||'—'}</div><div style="font-size:14px">${(t.type==='In'||t.direction==='in')?'⬅':'➡'}</div><div class="tclub">${t.from?.name||t.to?.name||t.club||'—'}</div><div class="tfee">${t.fee||t.transferFee||'—'}</div></div>`).join('');
   }catch(e){document.getElementById('smbody').innerHTML='<div style="padding:30px;text-align:center;color:var(--text3)">Transfer verisi bulunamadı</div>'}
 }
@@ -684,7 +637,7 @@ async function drawMarket(p){
   document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>Yükleniyor...</div></div>';
   const hdr=`<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:13px;margin-bottom:13px"><div style="font-size:10px;color:var(--text3);margin-bottom:4px;letter-spacing:1px;text-transform:uppercase">Güncel Piyasa Değeri</div><div style="font-family:'Bebas Neue',cursive;font-size:34px;color:var(--gold)">${p.value||'-'}</div></div>`;
   try{
-    const d=await tmGet(`/players/market-value-history?id=${p.id}`);
+    const d=await tmGet('/players/market-value-history?id='+p.id);
     const hist=d.data||d.history||[];
     if(!Array.isArray(hist)||!hist.length)throw new Error('empty');
     document.getElementById('smbody').innerHTML=hdr+'<div style="font-size:10px;color:var(--text3);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">Değer Geçmişi</div>'+
@@ -693,11 +646,11 @@ async function drawMarket(p){
 }
 
 function drawProfile(p){
-  const rows=[['Ad Soyad',p.name],p.number?['Forma No','#'+p.number]:null,p.dob?['Doğum',p.dob]:p.age?['Yaş',p.age]:null,['Mevki',p.pos],p.nat?['Uyruk',p.nat]:null,p.foot?['Ayak',p.foot]:null,p.height?['Boy',p.height]:null,['Piyasa Değeri',`<span style="color:var(--gold)">${p.value||'-'}</span>`],p.id?['Transfermarkt',`<a href="https://www.transfermarkt.com/xxx/profil/spieler/${p.id}" target="_blank" style="color:var(--accent2)">Profili Gör →</a>`]:null].filter(Boolean);
+  const rows=[['Ad Soyad',p.name],p.number?['Forma No','#'+p.number]:null,p.dob?['Doğum',p.dob]:p.age?['Yaş',p.age]:null,['Mevki',p.pos],p.nat?['Uyruk',p.nat]:null,p.foot?['Ayak',p.foot]:null,p.height?['Boy',p.height]:null,['Piyasa Değeri','<span style="color:var(--gold)">'+(p.value||'-')+'</span>'],p.id?['Transfermarkt','<a href="https://www.transfermarkt.com/xxx/profil/spieler/'+p.id+'" target="_blank" style="color:var(--accent2)">Profili Gör →</a>']:null].filter(Boolean);
   document.getElementById('smbody').innerHTML=rows.map(([l,v])=>`<div class="srow"><span class="srl">${l}</span><span class="srv">${v}</span></div>`).join('');
 }
 
-function srd(seed,min,max){const s=seed%2147483647;return Math.floor(((s*16807+49297)%233280)/233280*(max-min+1)+min)}
+function srd(s,a,b){const x=s%2147483647;return Math.floor(((x*16807+49297)%233280)/233280*(b-a+1)+a)}
 function mockStats(p,season,comp){
   const seed=(p.name+season+comp).split('').reduce((a,c)=>a+c.charCodeAt(0),0);
   const r=(a,b)=>srd(seed+a*7+b*3,a,b);
@@ -731,11 +684,11 @@ function drawDetail(s){
 async function chS(d){SS.si=Math.max(0,Math.min(SEASONS.length-1,SS.si+d));SS.cache={};await drawTab(ST.ctab)}
 async function chC(i,el){SS.ci=i;document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));el.classList.add('active');SS.cache={};await drawTab(ST.ctab)}
 
-// Mock squad
-const MFN=['Ahmet','Emre','Kerem','Ozan','Hakan','Arda','Lucas','Marco','Carlos','João','Kevin','Leon','Kylian','Erling','Vinicius','Phil','Bukayo','Gavi','Pedri','Jude'];
-const MLN=['Yılmaz','Demir','Çelik','Güler','Kabak','Müller','Hernandez','Alves','Fernandez','Modric','Salah','Kane','Bellingham','Haaland','Saka','Rice','Wirtz','Musiala','Mbappe','Osimhen'];
+// MOCK SQUAD
+const MFN=['Ahmet','Emre','Kerem','Ozan','Hakan','Arda','Lucas','Marco','Carlos','João','Kevin','Leon','Kylian','Erling','Vinicius','Phil','Bukayo'];
+const MLN=['Yılmaz','Demir','Çelik','Güler','Kabak','Müller','Hernandez','Alves','Fernandez','Modric','Salah','Kane','Bellingham','Haaland','Saka','Rice','Wirtz'];
 const MPOS=[{p:'Goalkeeper',s:'GK'},{p:'Centre-Back',s:'CB'},{p:'Centre-Back',s:'CB'},{p:'Left-Back',s:'LB'},{p:'Right-Back',s:'RB'},{p:'Central Midfield',s:'CM'},{p:'Central Midfield',s:'CM'},{p:'Attacking Midfield',s:'AM'},{p:'Left Winger',s:'LW'},{p:'Right Winger',s:'RW'},{p:'Centre-Forward',s:'CF'},{p:'Goalkeeper',s:'GK'},{p:'Centre-Back',s:'CB'},{p:'Left-Back',s:'LB'},{p:'Central Midfield',s:'CM'},{p:'Attacking Midfield',s:'AM'},{p:'Centre-Forward',s:'CF'}];
-const MVALS=['3 Mio. €','5 Mio. €','8 Mio. €','12 Mio. €','15 Mio. €','20 Mio. €','25 Mio. €','35 Mio. €','50 Mio. €','70 Mio. €','100 Mio. €'];
+const MVALS=['3 Mio. €','5 Mio. €','8 Mio. €','12 Mio. €','15 Mio. €','20 Mio. €','25 Mio. €','35 Mio. €','50 Mio. €'];
 function srnd(s){let x=s%2147483647;return()=>{x=(x*16807)%2147483647;return(x-1)/2147483646}}
 function mockSquad(name){
   const r=srnd(name.split('').reduce((a,c)=>a+c.charCodeAt(0),0));
