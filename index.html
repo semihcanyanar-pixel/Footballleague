@@ -20,186 +20,217 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 #app{display:flex;height:100vh;overflow:hidden}
 
 /* LEFT */
-#lp{width:240px;min-width:240px;background:var(–surface);border-right:1px solid var(–border);display:flex;flex-direction:column;overflow:hidden;transition:width .28s,min-width .28s}
+#lp{width:220px;min-width:220px;background:var(–surface);border-right:1px solid var(–border);display:flex;flex-direction:column;overflow:hidden;transition:width .28s,min-width .28s}
 #lp.col{width:0;min-width:0}
-.ph{padding:14px 15px;border-bottom:1px solid var(–border);flex-shrink:0;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:‘Bebas Neue’,cursive;font-size:22px;color:var(–accent);letter-spacing:2px}
+.ph{padding:12px 14px;border-bottom:1px solid var(–border);flex-shrink:0}
+.logo{font-family:‘Bebas Neue’,cursive;font-size:21px;color:var(–accent);letter-spacing:2px}
 .logo span{color:var(–accent2)}
-.settings-btn{background:none;border:none;color:var(–text3);font-size:16px;cursor:pointer;padding:2px}
-.sb{margin:10px 11px;position:relative;flex-shrink:0}
-.sb input{width:100%;background:var(–surface2);border:1px solid var(–border);border-radius:8px;color:var(–text);padding:8px 10px 8px 30px;font-size:13px;outline:none;font-family:‘DM Sans’,sans-serif;transition:border-color .2s}
-.sb input:focus{border-color:var(–accent)}
+.sb{margin:8px 10px;position:relative;flex-shrink:0}
+.sb input{width:100%;background:var(–surface2);border:1px solid var(–border);border-radius:8px;color:var(–text);padding:7px 10px 7px 28px;font-size:12px;outline:none;font-family:‘DM Sans’,sans-serif}
 .sb input::placeholder{color:var(–text3)}
-.sb::before{content:‘🔍’;position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:11px;opacity:.4}
-.sl{padding:7px 15px 3px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(–text3);text-transform:uppercase;flex-shrink:0}
-#ll{overflow-y:auto;flex:1}
+.sb::before{content:‘🔍’;position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:10px;opacity:.4}
+.sl{padding:6px 14px 3px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(–text3);text-transform:uppercase;flex-shrink:0}
+#ll{overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
 #ll::-webkit-scrollbar{width:3px}
 #ll::-webkit-scrollbar-thumb{background:var(–border);border-radius:3px}
-.li{display:flex;align-items:center;gap:8px;padding:7px 13px;cursor:pointer;border-radius:6px;margin:1px 7px;transition:background .15s;font-size:13px}
+.li{display:flex;align-items:center;gap:7px;padding:7px 12px;cursor:pointer;border-radius:6px;margin:1px 6px;transition:background .15s;font-size:12px}
 .li:hover{background:var(–surface2)}
 .li.active{background:rgba(0,229,160,.08);color:var(–accent)}
-.lf{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.lf{font-size:14px;width:18px;text-align:center;flex-shrink:0}
 .ln{flex:1;font-weight:500}
 .la{color:var(–text3);font-size:10px;transition:transform .2s;flex-shrink:0}
 .li.open .la{transform:rotate(90deg)}
 .tsl{display:none}.tsl.open{display:block}
-.ti{display:flex;align-items:center;padding:6px 13px 6px 36px;cursor:pointer;font-size:12px;color:var(–text2);transition:background .15s,color .15s;border-radius:6px;margin:1px 7px}
+.ti{display:flex;align-items:center;padding:5px 12px 5px 32px;cursor:pointer;font-size:11px;color:var(–text2);transition:background .15s,color .15s;border-radius:6px;margin:1px 6px}
 .ti:hover{background:var(–surface2);color:var(–text)}
 .ti.active{color:var(–accent);font-weight:600}
 
 /* MAIN */
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-#topbar{height:52px;display:flex;align-items:center;padding:0 13px;gap:10px;border-bottom:1px solid var(–border);background:var(–surface);flex-shrink:0}
+#topbar{height:50px;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid var(–border);background:var(–surface);flex-shrink:0}
 .hb{background:none;border:none;color:var(–text2);font-size:20px;cursor:pointer;padding:4px;flex-shrink:0}
-#tt{font-family:‘Bebas Neue’,cursive;font-size:20px;letter-spacing:1px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#fsel{display:flex;align-items:center;gap:5px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;padding:6px 11px;cursor:pointer;font-size:13px;font-weight:700;color:var(–accent);transition:border-color .2s;flex-shrink:0}
+#tt{font-family:‘Bebas Neue’,cursive;font-size:19px;letter-spacing:1px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* MODE TOGGLE */
+#mode-btn{
+display:flex;align-items:center;gap:5px;
+background:var(–surface2);border:1px solid var(–border);
+border-radius:8px;padding:5px 10px;cursor:pointer;
+font-size:11px;font-weight:700;color:var(–text2);
+transition:all .2s;flex-shrink:0;
+}
+#mode-btn.stats-mode{color:var(–accent2);border-color:var(–accent2);background:rgba(0,136,255,.08)}
+#mode-btn.swap-mode{color:var(–yellow);border-color:var(–yellow);background:rgba(251,191,36,.08)}
+#mode-icon{font-size:14px}
+
+#fsel{display:flex;align-items:center;gap:4px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:700;color:var(–accent);transition:border-color .2s;flex-shrink:0}
 #fsel:hover{border-color:var(–accent)}
 
 /* PITCH */
-#pc{flex:1;display:flex;flex-direction:column;overflow:hidden;padding:9px;gap:8px}
+#pc{flex:1;display:flex;flex-direction:column;overflow:hidden;padding:8px;gap:7px}
 #pw{flex:1;position:relative;min-height:0}
 #pitch{
-width:100%;height:100%;border-radius:14px;position:relative;overflow:hidden;
+width:100%;height:100%;border-radius:12px;position:relative;overflow:hidden;
 border:2px solid rgba(255,255,255,.08);
-box-shadow:0 12px 40px rgba(0,0,0,.6),inset 0 0 80px rgba(0,0,0,.25);
+box-shadow:0 8px 32px rgba(0,0,0,.6),inset 0 0 60px rgba(0,0,0,.2);
 background:
-repeating-linear-gradient(0deg,transparent,transparent 52px,rgba(0,0,0,.04) 52px,rgba(0,0,0,.04) 104px),
+repeating-linear-gradient(0deg,transparent,transparent 50px,rgba(0,0,0,.04) 50px,rgba(0,0,0,.04) 100px),
 linear-gradient(180deg,#1a6b1a,#1e7a1e 35%,#217821 65%,#1a6b1a);
 }
-.pcl{position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,.14)}
-.pcc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:17%;aspect-ratio:1;border:2px solid rgba(255,255,255,.14);border-radius:50%}
-.pcd{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:5px;height:5px;background:rgba(255,255,255,.35);border-radius:50%}
-.ppt,.ppb{position:absolute;left:26%;right:26%;border:2px solid rgba(255,255,255,.14)}
+.pcl{position:absolute;top:50%;left:0;right:0;height:2px;background:rgba(255,255,255,.13)}
+.pcc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:17%;aspect-ratio:1;border:2px solid rgba(255,255,255,.13);border-radius:50%}
+.pcd{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:5px;height:5px;background:rgba(255,255,255,.3);border-radius:50%}
+.ppt,.ppb{position:absolute;left:26%;right:26%;border:2px solid rgba(255,255,255,.13)}
 .ppt{top:0;height:17%;border-top:none}.ppb{bottom:0;height:17%;border-bottom:none}
-.pgt,.pgb{position:absolute;left:39%;right:39%;height:5%;border:2px solid rgba(255,255,255,.14)}
+.pgt,.pgb{position:absolute;left:39%;right:39%;height:5%;border:2px solid rgba(255,255,255,.13)}
 .pgt{top:0;border-top:none}.pgb{bottom:0;border-bottom:none}
 
 /* PLAYER CARD */
-.pcard{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;z-index:10;touch-action:none;transition:filter .15s}
-.pcard .av{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2.5px solid rgba(255,255,255,.8);background:var(–surface2);position:relative;box-shadow:0 3px 12px rgba(0,0,0,.65);transition:border-color .2s,transform .15s,box-shadow .15s}
+.pcard{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;z-index:10;touch-action:none}
+/* FIX 1: Photo fitting */
+.pcard .av{
+width:52px;height:52px;border-radius:50%;
+overflow:hidden;border:2.5px solid rgba(255,255,255,.8);
+background:var(–surface2);position:relative;
+box-shadow:0 3px 12px rgba(0,0,0,.6);
+transition:border-color .2s,transform .15s,box-shadow .15s;
+flex-shrink:0;
+}
 .pcard:hover .av{border-color:var(–accent);transform:scale(1.07)}
-.pcard.drag .av{border-color:var(–accent);box-shadow:0 0 22px rgba(0,229,160,.5);transform:scale(1.1)}
-/* SELECTED state */
-.pcard.selected .av{border-color:#fff;border-width:3px;box-shadow:0 0 0 3px var(–accent),0 4px 16px rgba(0,229,160,.6);transform:scale(1.12)}
-.pcard.selected .pname{background:var(–accent);color:#000}
-/* SWAP TARGET hint */
-.pcard.swap-target .av{border-color:var(–yellow);box-shadow:0 0 0 2px var(–yellow),0 2px 10px rgba(251,191,36,.4)}
+.pcard.drag .av{border-color:var(–accent);box-shadow:0 0 20px rgba(0,229,160,.5);transform:scale(1.1)}
+.pcard.selected .av{border-color:#fff;border-width:3px;box-shadow:0 0 0 3px var(–yellow),0 4px 16px rgba(251,191,36,.5);transform:scale(1.12)}
+.pcard.selected .pname{background:var(–yellow);color:#000}
+.pcard.swap-target .av{border-color:rgba(255,255,255,.4);opacity:.8}
 
-.av img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.av-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:18px;color:var(–accent);background:var(–surface2)}
-.posbadge{position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);background:var(–accent);color:#000;font-size:7px;font-weight:900;padding:1px 4px;border-radius:3px;white-space:nowrap}
+/* FIX 1: Image fills circle perfectly */
+.av img{
+width:100%;height:100%;
+object-fit:cover;
+object-position:center top;
+display:block;
+}
+.av-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:18px;color:var(–accent)}
+.posbadge{position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);background:var(–accent);color:#000;font-size:7px;font-weight:900;padding:1px 4px;border-radius:3px;white-space:nowrap;z-index:1}
 .pname{background:rgba(0,0,0,.85);backdrop-filter:blur(6px);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap;max-width:82px;overflow:hidden;text-overflow:ellipsis;text-align:center;transition:background .2s,color .2s}
 .pval{background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.3);color:var(–gold);font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;white-space:nowrap}
 
 /* LOADING */
-#lo{position:absolute;inset:0;background:rgba(8,12,23,.9);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;border-radius:14px;gap:14px}
-.spin{width:36px;height:36px;border:3px solid var(–border);border-top-color:var(–accent);border-radius:50%;animation:spin .8s linear infinite}
+#lo{position:absolute;inset:0;background:rgba(8,12,23,.9);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;border-radius:12px;gap:12px}
+.spin{width:34px;height:34px;border:3px solid var(–border);border-top-color:var(–accent);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.ltext{font-size:13px;color:var(–text2);text-align:center;max-width:220px;line-height:1.5}
+.ltext{font-size:13px;color:var(–text2);text-align:center;max-width:200px;line-height:1.5}
 #es{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(–text3);pointer-events:none}
 
-/* SWAP HINT BANNER */
-#swaphint{
-position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
-background:rgba(0,0,0,.85);backdrop-filter:blur(8px);
-border:1px solid var(–accent);border-radius:20px;
-padding:6px 16px;font-size:12px;font-weight:600;color:var(–accent);
-pointer-events:none;white-space:nowrap;z-index:20;
-opacity:0;transition:opacity .2s;
+/* FIX 4: BENCH - scrollable */
+#bp{
+height:112px;background:var(–surface);border-radius:10px;
+border:1px solid var(–border);display:flex;flex-direction:column;
+overflow:hidden;flex-shrink:0;
 }
-#swaphint.show{opacity:1}
-
-/* BENCH */
-#bp{height:110px;background:var(–surface);border-radius:10px;border:1px solid var(–border);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
-.bh{padding:5px 13px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(–text3);text-transform:uppercase;border-bottom:1px solid var(–border);flex-shrink:0}
-#bs{display:flex;gap:10px;padding:7px 11px;overflow-x:auto;flex:1;align-items:center}
+.bh{padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(–text3);text-transform:uppercase;border-bottom:1px solid var(–border);flex-shrink:0}
+#bs{
+display:flex;gap:8px;padding:6px 10px;
+overflow-x:auto;overflow-y:hidden;
+flex:1;align-items:center;
+-webkit-overflow-scrolling:touch;
+}
 #bs::-webkit-scrollbar{height:3px}
 #bs::-webkit-scrollbar-thumb{background:var(–border);border-radius:3px}
-.bpl{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;min-width:52px;transition:transform .15s}
+.bpl{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;min-width:50px;flex-shrink:0;transition:transform .15s}
 .bpl:hover{transform:translateY(-2px)}
-.bav{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid var(–border);background:var(–surface2);transition:border-color .2s,box-shadow .2s}
+/* FIX 1: Bench avatar */
+.bav{
+width:44px;height:44px;border-radius:50%;overflow:hidden;
+border:2px solid var(–border);background:var(–surface2);
+transition:border-color .2s,box-shadow .2s;flex-shrink:0;
+}
 .bpl:hover .bav{border-color:var(–accent)}
-.bpl.selected .bav{border-color:#fff;border-width:2.5px;box-shadow:0 0 0 2px var(–accent)}
-.bpl.selected .bname{color:var(–accent)}
-.bpl.swap-target .bav{border-color:var(–yellow);box-shadow:0 0 0 2px var(–yellow)}
-.bav img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.bav-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:14px;color:var(–accent)}
-.bname{font-size:9px;color:var(–text2);text-align:center;white-space:nowrap;max-width:54px;overflow:hidden;text-overflow:ellipsis;transition:color .2s}
+.bpl.selected .bav{border-color:var(–yellow);box-shadow:0 0 0 2px var(–yellow)}
+.bpl.selected .bname{color:var(–yellow)}
+.bav img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.bav-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:13px;color:var(–accent)}
+.bname{font-size:9px;color:var(–text2);text-align:center;white-space:nowrap;max-width:52px;overflow:hidden;text-overflow:ellipsis}
 .bpos{font-size:8px;color:var(–text3);text-align:center}
 
 /* FORMATION MODAL */
 #fmod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);z-index:200;align-items:center;justify-content:center}
 #fmod.open{display:flex}
-.fbox{background:var(–surface);border:1px solid var(–border);border-radius:18px;padding:22px;width:330px;max-width:92vw}
-.ftitle{font-family:‘Bebas Neue’,cursive;font-size:20px;letter-spacing:2px;margin-bottom:14px;color:var(–accent)}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.fbtn{background:var(–surface2);border:1px solid var(–border);border-radius:8px;color:var(–text);font-family:‘Bebas Neue’,cursive;font-size:18px;letter-spacing:1px;padding:11px 5px;cursor:pointer;text-align:center;transition:all .15s}
+.fbox{background:var(–surface);border:1px solid var(–border);border-radius:18px;padding:20px;width:320px;max-width:92vw}
+.ftitle{font-family:‘Bebas Neue’,cursive;font-size:20px;letter-spacing:2px;margin-bottom:12px;color:var(–accent)}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.fbtn{background:var(–surface2);border:1px solid var(–border);border-radius:8px;color:var(–text);font-family:‘Bebas Neue’,cursive;font-size:17px;letter-spacing:1px;padding:10px 4px;cursor:pointer;text-align:center;transition:all .15s}
 .fbtn:hover,.fbtn.active{border-color:var(–accent);color:var(–accent);background:rgba(0,229,160,.08)}
-.fclose{margin-top:13px;width:100%;background:none;border:1px solid var(–border);border-radius:8px;color:var(–text2);font-size:14px;padding:9px;cursor:pointer;font-family:‘DM Sans’,sans-serif}
+.fclose{margin-top:12px;width:100%;background:none;border:1px solid var(–border);border-radius:8px;color:var(–text2);font-size:13px;padding:9px;cursor:pointer;font-family:‘DM Sans’,sans-serif}
 
 /* STATS MODAL */
-#smod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);z-index:300;align-items:center;justify-content:center;padding:14px}
+#smod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);z-index:300;align-items:center;justify-content:center;padding:12px}
 #smod.open{display:flex}
-.sbox{background:var(–surface);border:1px solid var(–border);border-radius:20px;width:500px;max-width:96vw;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;position:relative}
-.shdr{display:flex;align-items:center;gap:14px;padding:18px;border-bottom:1px solid var(–border);background:linear-gradient(135deg,var(–surface2),var(–surface));flex-shrink:0}
-.savatar{width:72px;height:72px;border-radius:50%;overflow:hidden;border:3px solid var(–accent);flex-shrink:0;background:var(–surface2)}
-.savatar img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.savatar-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:26px;color:var(–accent)}
+.sbox{background:var(–surface);border:1px solid var(–border);border-radius:20px;width:500px;max-width:96vw;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.shdr{display:flex;align-items:center;gap:12px;padding:16px;border-bottom:1px solid var(–border);background:linear-gradient(135deg,var(–surface2),var(–surface));flex-shrink:0}
+/* FIX 1: Stats modal avatar */
+.savatar{width:70px;height:70px;border-radius:50%;overflow:hidden;border:3px solid var(–accent);flex-shrink:0;background:var(–surface2)}
+.savatar img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.savatar-init{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:‘Bebas Neue’,cursive;font-size:24px;color:var(–accent)}
 .sinfo{flex:1;min-width:0}
-.sname{font-family:‘Bebas Neue’,cursive;font-size:23px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.smeta{font-size:11px;color:var(–text2);margin-top:4px;display:flex;gap:5px;flex-wrap:wrap}
-.smeta span{background:var(–surface2);padding:2px 7px;border-radius:10px;border:1px solid var(–border)}
-.sval{background:linear-gradient(135deg,var(–gold),#c8920a);color:#000;font-weight:800;font-size:12px;padding:5px 11px;border-radius:16px;white-space:nowrap;flex-shrink:0}
-.xcbtn{position:absolute;top:13px;right:13px;background:var(–surface2);border:1px solid var(–border);border-radius:50%;width:29px;height:29px;color:var(–text2);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;transition:all .2s}
-.xcbtn:hover{border-color:var(–red);color:var(–red)}
+.sname{font-family:‘Bebas Neue’,cursive;font-size:22px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.smeta{font-size:11px;color:var(–text2);margin-top:3px;display:flex;gap:4px;flex-wrap:wrap}
+.smeta span{background:var(–surface2);padding:2px 6px;border-radius:10px;border:1px solid var(–border)}
+.sval{background:linear-gradient(135deg,var(–gold),#c8920a);color:#000;font-weight:800;font-size:11px;padding:4px 10px;border-radius:14px;white-space:nowrap;flex-shrink:0}
+.xcbtn{position:absolute;top:12px;right:12px;background:var(–surface2);border:1px solid var(–border);border-radius:50%;width:28px;height:28px;color:var(–text2);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1}
 .stabs{display:flex;border-bottom:1px solid var(–border);overflow-x:auto;flex-shrink:0}
 .stabs::-webkit-scrollbar{height:0}
-.stab{padding:9px 14px;font-size:12px;font-weight:600;color:var(–text2);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s;flex-shrink:0}
+.stab{padding:8px 13px;font-size:12px;font-weight:600;color:var(–text2);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s;flex-shrink:0}
 .stab.active{color:var(–accent);border-bottom-color:var(–accent)}
-.sbody{overflow-y:auto;padding:14px;flex:1}
+.sbody{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:13px;flex:1}
 .sbody::-webkit-scrollbar{width:3px}
 .sbody::-webkit-scrollbar-thumb{background:var(–border);border-radius:3px}
-.snav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:8px 13px;background:var(–surface2);border-radius:8px;border:1px solid var(–border)}
+.snav{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;padding:7px 12px;background:var(–surface2);border-radius:8px;border:1px solid var(–border)}
 .sarr{background:none;border:none;color:var(–accent);font-size:22px;cursor:pointer;padding:0 4px;line-height:1}
 .slbl{font-weight:700;font-size:14px}
-.ctabs{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
-.ctab{padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;background:var(–surface2);border:1px solid var(–border);color:var(–text2);transition:all .15s}
+.ctabs{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap}
+.ctab{padding:4px 9px;border-radius:14px;font-size:11px;font-weight:600;cursor:pointer;background:var(–surface2);border:1px solid var(–border);color:var(–text2);transition:all .15s}
 .ctab.active{background:rgba(0,229,160,.1);border-color:var(–accent);color:var(–accent)}
-.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px}
-.sc{background:var(–surface2);border:1px solid var(–border);border-radius:10px;padding:11px 6px;text-align:center}
-.scv{font-family:‘Bebas Neue’,cursive;font-size:28px;color:var(–accent);line-height:1}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:13px}
+.sc{background:var(–surface2);border:1px solid var(–border);border-radius:10px;padding:10px 5px;text-align:center}
+.scv{font-family:‘Bebas Neue’,cursive;font-size:27px;color:var(–accent);line-height:1}
 .scl{font-size:9px;color:var(–text3);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
 .sc.y .scv{color:var(–yellow)}.sc.r .scv{color:var(–red)}.sc.g .scv{color:var(–gold)}
-.srow{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(–border);font-size:13px}
+.srow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(–border);font-size:13px}
 .srow:last-child{border-bottom:none}
 .srl{color:var(–text2)}.srv{font-weight:700}
-.barrow{padding:6px 0}
-.barlbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.barrow{padding:5px 0}
+.barlbl{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px}
 .barlbl span:first-child{color:var(–text2)}.barlbl span:last-child{color:var(–accent);font-weight:700}
 .barbg{height:4px;background:var(–surface2);border-radius:2px;overflow:hidden}
 .barfill{height:100%;background:linear-gradient(90deg,var(–accent2),var(–accent));border-radius:2px;transition:width .6s ease}
-.mpoint{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(–border);font-size:13px}
+.mpoint{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(–border);font-size:13px}
 .mpoint:last-child{border-bottom:none}
 .mdate{color:var(–text3)}.mval{font-weight:700;color:var(–gold)}
-.sload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 0;color:var(–text2)}
-.titem{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;margin-bottom:6px;font-size:12px}
-.tdate{color:var(–text3);min-width:60px;font-size:11px}
+.sload{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:36px 0;color:var(–text2)}
+.titem{display:flex;align-items:center;gap:8px;padding:8px 11px;background:var(–surface2);border:1px solid var(–border);border-radius:8px;margin-bottom:5px;font-size:12px}
+.tdate{color:var(–text3);min-width:58px;font-size:11px}
 .tclub{flex:1;font-weight:600}
 .tfee{color:var(–gold);font-weight:700}
 
-#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);background:var(–surface);border:1px solid var(–border);border-radius:10px;padding:9px 18px;font-size:13px;z-index:500;transition:transform .3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:var(–surface);border:1px solid var(–border);border-radius:10px;padding:8px 16px;font-size:13px;z-index:500;transition:transform .3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center}
 #toast.show{transform:translateX(-50%) translateY(0)}
 
-@media(max-width:768px){#lp{width:200px;min-width:200px}.av{width:44px;height:44px}.pname{font-size:9px;max-width:66px}}
+/* Swap hint */
+#swaphint{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:rgba(251,191,36,.15);backdrop-filter:blur(8px);border:1px solid var(–yellow);border-radius:16px;padding:5px 14px;font-size:11px;font-weight:700;color:var(–yellow);pointer-events:none;white-space:nowrap;z-index:20;opacity:0;transition:opacity .2s}
+#swaphint.show{opacity:1}
+
+@media(max-width:768px){
+#lp{width:190px;min-width:190px}
+.av{width:46px;height:46px}
+.pname{font-size:9px;max-width:70px}
+}
 </style>
 
 </head>
 <body>
 <div id="app">
   <div id="lp">
-    <div class="ph">
-      <div class="logo">Football<span>IQ</span></div>
-    </div>
+    <div class="ph"><div class="logo">Football<span>IQ</span></div></div>
     <div class="sb"><input type="text" id="si" placeholder="Takım ara..." oninput="filterTeams(this.value)"></div>
     <div class="sl">Ligler</div>
     <div id="ll"></div>
@@ -208,8 +239,13 @@ opacity:0;transition:opacity .2s;
     <div id="topbar">
       <button class="hb" onclick="togglePanel()">☰</button>
       <div id="tt">Takım Seç</div>
+      <!-- FIX 2: Mode toggle button -->
+      <div id="mode-btn" class="stats-mode" onclick="toggleMode()">
+        <span id="mode-icon">📊</span>
+        <span id="mode-label">İstatistik</span>
+      </div>
       <div id="fsel" onclick="openFM()">
-        <span style="font-size:14px">⚽</span>
+        <span style="font-size:13px">⚽</span>
         <span id="cfm">4-3-3</span>
         <span style="font-size:9px;opacity:.7">▼</span>
       </div>
@@ -225,6 +261,7 @@ opacity:0;transition:opacity .2s;
           <div id="swaphint">Değiştirmek istediğin oyuncuya dokun</div>
         </div>
       </div>
+      <!-- FIX 4: Bench with proper scroll -->
       <div id="bp"><div class="bh">🪑 Yedek Oyuncular</div><div id="bs"></div></div>
     </div>
   </div>
@@ -251,19 +288,31 @@ opacity:0;transition:opacity .2s;
 
 <script>
 // ══════════════════════════
-// API
+// CONFIG
 // ══════════════════════════
-const TM_HOST = 'transfermarkt-football-data-api.p.rapidapi.com';
-const TM_BASE = "https://footballiq-proxy.semihcanyanar.workers.dev";
-const API_KEY  = 'aaeb6d5bdamsh588bb53c4629d81p17e77bjsnd5f0ab2698d4';
-
+const PROXY = 'https://footballiq-proxy.semihcanyanar.workers.dev';
 async function tmGet(path) {
-  const r = await fetch(`${TM_BASE}${path}`, {
-    headers: {},
-    signal: AbortSignal.timeout(12000),
-  });
+  const r = await fetch(`${PROXY}${path}`, {signal:AbortSignal.timeout(12000)});
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   return r.json();
+}
+
+// ══════════════════════════
+// MODE: stats vs swap
+// ══════════════════════════
+let appMode = 'stats'; // 'stats' | 'swap'
+function toggleMode() {
+  appMode = appMode === 'stats' ? 'swap' : 'stats';
+  const btn = document.getElementById('mode-btn');
+  const icon = document.getElementById('mode-icon');
+  const label = document.getElementById('mode-label');
+  if (appMode === 'stats') {
+    btn.className = 'stats-mode'; icon.textContent = '📊'; label.textContent = 'İstatistik';
+    clearSwapUI();
+  } else {
+    btn.className = 'swap-mode'; icon.textContent = '🔄'; label.textContent = 'Değiştir';
+  }
+  document.getElementById('mode-btn').id = 'mode-btn'; // force repaint
 }
 
 // ══════════════════════════
@@ -282,7 +331,6 @@ const LEAGUES = [
   {id:'MX1',name:'Liga MX',flag:'🇲🇽'},{id:'MLS1',name:'MLS',flag:'🇺🇸'},
   {id:'CL',name:'Champions League',flag:'🏆'},{id:'EL',name:'Europa League',flag:'🇪🇺'},
 ];
-
 const TEAMS = {
   TR1:[{id:'141',n:'Galatasaray'},{id:'36',n:'Fenerbahçe'},{id:'114',n:'Beşiktaş'},{id:'449',n:'Trabzonspor'},{id:'6890',n:'Başakşehir'},{id:'3526',n:'Adana Demirspor'},{id:'2382',n:'Sivasspor'},{id:'2832',n:'Konyaspor'},{id:'5980',n:'Antalyaspor'},{id:'13048',n:'Alanyaspor'},{id:'2390',n:'Kayserispor'},{id:'2383',n:'Rizespor'},{id:'6026',n:'Gaziantep FK'},{id:'2371',n:'Samsunspor'},{id:'6227',n:'Fatih Karagümrük'},{id:'2274',n:'Kasımpaşa'},{id:'12479',n:'Pendikspor'},{id:'7173',n:'Hatayspor'}],
   TR2:[{id:'5898',n:'Eyüpspor'},{id:'6318',n:'Sakaryaspor'},{id:'2437',n:'Göztepe'},{id:'2354',n:'Altay'},{id:'8206',n:'Erzurumspor'}],
@@ -299,8 +347,17 @@ const TEAMS = {
 };
 LEAGUES.forEach(l=>{if(!TEAMS[l.id])TEAMS[l.id]=[]});
 
+// FIX 3: Position ordering for smart lineup
 const POSMAP={'Goalkeeper':'GK','Defender':'DEF','Centre-Back':'CB','Left-Back':'LB','Right-Back':'RB','Defensive Midfield':'DM','Central Midfield':'CM','Attacking Midfield':'AM','Left Winger':'LW','Right Winger':'RW','Forward':'FW','Centre-Forward':'CF','Left Midfield':'LM','Right Midfield':'RM','Second Striker':'SS','Midfielder':'MF','Winger':'WG'};
-const POSORDER=['Goalkeeper','Left-Back','Centre-Back','Right-Back','Defender','Defensive Midfield','Left Midfield','Central Midfield','Right Midfield','Attacking Midfield','Left Winger','Right Winger','Second Striker','Centre-Forward','Forward'];
+
+// Position priority for lineup selection
+const POS_PRIORITY = {
+  'Goalkeeper':0,
+  'Left-Back':1,'Right-Back':1,'Centre-Back':1,'Defender':1,
+  'Defensive Midfield':2,'Central Midfield':2,'Left Midfield':2,'Right Midfield':2,
+  'Attacking Midfield':3,'Left Winger':3,'Right Winger':3,'Winger':3,'Second Striker':3,
+  'Centre-Forward':4,'Forward':4,'Midfielder':2
+};
 
 const FLIST=['4-4-2','4-3-3','4-2-3-1','3-5-2','3-4-3','5-3-2','5-4-1','4-1-4-1','4-5-1','4-3-2-1','3-6-1','4-2-2-2'];
 const FSLOTS={
@@ -318,32 +375,18 @@ const FSLOTS={
   '4-2-2-2':[[50,90],[15,73],[38,73],[62,73],[85,73],[33,62],[67,62],[25,45],[75,45],[33,27],[67,27]],
 };
 
-// ══════════════════════════
-// STATE
-// ══════════════════════════
-const ST = {
-  formation:'4-3-3',
-  starters:[],   // array of player objects, index = pitch slot
-  bench:[],
-  overrides:{},  // {slotIndex: {x,y}}
-  ctab:0,
-  // SWAP STATE
-  selected: null,  // {type:'pitch'|'bench', index:number}
-};
-const SS = {player:null,si:0,ci:0,cache:{}};
+const ST={formation:'4-3-3',starters:[],bench:[],overrides:{},ctab:0,selected:null};
+const SS={player:null,si:0,ci:0,cache:{}};
 const SEASONS=['2024/25','2023/24','2022/23','2021/22','2020/21'];
 const COMPS=['Lig','Kupa','Şampiyonlar Ligi','Uluslararası','Toplam'];
 const tcache={};
 
-// helpers
-function initials(name){return(name||'?').trim().split(/\s+/).map(w=>w[0]||'').join('').substring(0,2).toUpperCase()}
+function initials(n){return(n||'?').trim().split(/\s+/).map(w=>w[0]||'').join('').substring(0,2).toUpperCase()}
 function lastName(n){const p=(n||'').trim().split(/\s+/);return p.length>1?p[p.length-1]:n}
+function parseMV(v){if(!v||v==='-')return 0;const n=parseFloat(v.replace(/[^0-9.]/g,''));if(v.includes('m')||v.includes('M'))return n*1e6;if(v.includes('k')||v.includes('K'))return n*1e3;return n||0}
 
 function init(){renderLeagues();renderFormations()}
 
-// ══════════════════════════
-// LEAGUES
-// ══════════════════════════
 function renderLeagues(){
   document.getElementById('ll').innerHTML=LEAGUES.map(l=>`
     <div class="li" id="li-${l.id}" onclick="toggleL('${l.id}')">
@@ -363,7 +406,7 @@ async function toggleL(id){
 function renderTeamList(id){
   const teams=tcache[id]||[];
   const ts=document.getElementById(`ts-${id}`);
-  if(!teams.length){ts.innerHTML='<div style="padding:6px 12px 6px 34px;font-size:11px;color:var(--text3)">Takım bulunamadı</div>';return}
+  if(!teams.length){ts.innerHTML='<div style="padding:6px 12px 6px 30px;font-size:11px;color:var(--text3)">Takım bulunamadı</div>';return}
   ts.innerHTML=teams.map(t=>`<div class="ti" id="ti-${t.id}" onclick="selectTeam('${t.id}','${t.n.replace(/'/g,"&#39;")}')">${t.n}</div>`).join('');
 }
 function filterTeams(q){
@@ -372,58 +415,71 @@ function filterTeams(q){
   if(q){document.querySelectorAll('.tsl').forEach(s=>s.classList.add('open'));document.querySelectorAll('.li').forEach(i=>i.classList.add('open'))}
 }
 
-// ══════════════════════════
-// SELECT TEAM
-// ══════════════════════════
 async function selectTeam(id,name){
   document.querySelectorAll('.ti').forEach(i=>i.classList.remove('active'));
   const el=document.getElementById(`ti-${id}`);if(el)el.classList.add('active');
   document.getElementById('tt').textContent=name;
   document.getElementById('es').style.display='none';
-  ST.overrides={};ST.selected=null;
-  clearSwapUI();
+  ST.overrides={};ST.selected=null;clearSwapUI();
   showL(true,`${name} kadrosu yükleniyor...`);
   const squad=await loadSquad(id,name);
-  ST.starters=squad.slice(0,11);
-  ST.bench=squad.slice(11);
+  // FIX 3: Smart lineup by position + market value
+  const lineup=smartLineup(squad);
+  ST.starters=lineup.starters;
+  ST.bench=lineup.bench;
   renderPitch();renderBench();showL(false);
   showToast(`${name} — ${squad.length} oyuncu yüklendi ✓`);
-  // Load photos in background
   loadPhotos(squad);
 }
 
-// ══════════════════════════
-// LOAD SQUAD
-// ══════════════════════════
+// FIX 3: Smart lineup - pick best 11 by position groups
+function smartLineup(squad) {
+  // Sort each position group by market value descending
+  const byPos = {};
+  squad.forEach(p => {
+    const pg = POS_PRIORITY[p.pos] ?? 2;
+    if (!byPos[pg]) byPos[pg] = [];
+    byPos[pg].push(p);
+  });
+  Object.values(byPos).forEach(arr => arr.sort((a,b) => parseMV(b.value) - parseMV(a.value)));
+
+  // Need: 1 GK, 4 DEF (prio 1), 3 MID (prio 2), 3 FWD (prio 3+4)
+  const gks   = (byPos[0]||[]).slice(0,1);
+  const defs  = (byPos[1]||[]).slice(0,4);
+  const mids  = (byPos[2]||[]).slice(0,3);
+  const fwds  = [...(byPos[3]||[]), ...(byPos[4]||[])].slice(0,3);
+
+  let starters = [...gks,...defs,...mids,...fwds];
+
+  // If not 11, fill from remaining
+  if(starters.length < 11){
+    const used = new Set(starters.map(p=>p.id));
+    const rest = squad.filter(p=>!used.has(p.id)).sort((a,b)=>parseMV(b.value)-parseMV(a.value));
+    starters = [...starters, ...rest].slice(0,11);
+  }
+
+  const starterIds = new Set(starters.map(p=>p.id));
+  const bench = squad.filter(p=>!starterIds.has(p.id));
+  return {starters, bench};
+}
+
 async function loadSquad(clubId,name){
   try{
     const json=await tmGet(`/clubs/squad?id=${clubId}`);
     const players=json.data;
     if(!Array.isArray(players)||players.length<5) throw new Error('empty');
-    return sortNorm(players);
-  }catch(e){
-    return mockSquad(name);
-  }
-}
-function sortNorm(players){
-  return[...players].sort((a,b)=>{
-    const ia=POSORDER.indexOf(a.position||'');const ib=POSORDER.indexOf(b.position||'');
-    return(ia<0?99:ia)-(ib<0?99:ib);
-  }).map(p=>({
-    id:p.id||'',name:p.name||'?',pos:p.position||'Midfielder',
-    short:POSMAP[p.position]||(p.position||'MF').substring(0,2).toUpperCase(),
-    imgSrc:'',value:p.marketValue||'-',number:p.number||'',
-    age:p.age?String(p.age):'',nat:p.nationality||'',foot:'',height:'',dob:''
-  }));
+    return players.map(p=>({
+      id:p.id||'',name:p.name||'?',pos:p.position||'Midfielder',
+      short:POSMAP[p.position]||(p.position||'MF').substring(0,2).toUpperCase(),
+      imgSrc:'',value:p.marketValue||'-',number:p.number||'',
+      age:p.age?String(p.age):'',nat:p.nationality||'',foot:'',height:'',dob:''
+    }));
+  }catch(e){return mockSquad(name)}
 }
 
-// ══════════════════════════
-// LOAD PHOTOS BACKGROUND
-// ══════════════════════════
 async function loadPhotos(squad){
   for(let i=0;i<squad.length;i++){
-    const p=squad[i];
-    if(!p.id)continue;
+    const p=squad[i];if(!p.id)continue;
     try{
       const json=await tmGet(`/players/profile?id=${p.id}`);
       const d=json.data||json;
@@ -434,11 +490,7 @@ async function loadPhotos(squad){
         if(d.height)p.height=d.height;
         if(d.foot)p.foot=d.foot;
         if(d.marketValue&&p.value==='-')p.value=d.marketValue;
-        // Update pitch card
-        refreshCardPhoto(p.id,url,p.name,p.short);
-        // Update bench card
-        refreshBenchPhoto(p.id,url,p.name);
-        // Update open stats modal
+        refreshPhoto(p.id,url,p.name,p.short);
         if(SS.player&&SS.player.id===p.id){
           SS.player.imgSrc=url;
           const sa=document.querySelector('.savatar');
@@ -449,24 +501,21 @@ async function loadPhotos(squad){
     await new Promise(r=>setTimeout(r,150));
   }
 }
-function refreshCardPhoto(pid,url,name,short){
+
+function refreshPhoto(pid,url,name,short){
   const card=document.querySelector(`.pcard[data-pid="${pid}"]`);
-  if(!card)return;
-  const av=card.querySelector('.av');
-  const wasSelected=card.classList.contains('selected');
-  av.innerHTML=`<img src="${url}" loading="lazy" onerror="this.style.display='none'" alt="${name}"><div class="posbadge">${short}</div>`;
-  if(wasSelected)card.classList.add('selected');
-}
-function refreshBenchPhoto(pid,url,name){
+  if(card){
+    const av=card.querySelector('.av');
+    const badge=av.querySelector('.posbadge')?.textContent||short;
+    av.innerHTML=`<img src="${url}" onerror="this.style.display='none'" alt="${name}"><div class="posbadge">${badge}</div>`;
+  }
   const bpl=document.querySelector(`.bpl[data-pid="${pid}"]`);
-  if(!bpl)return;
-  const bav=bpl.querySelector('.bav');
-  bav.innerHTML=`<img src="${url}" loading="lazy" onerror="this.style.display='none'" alt="${name}">`;
+  if(bpl){
+    const bav=bpl.querySelector('.bav');
+    bav.innerHTML=`<img src="${url}" onerror="this.style.display='none'" alt="${name}">`;
+  }
 }
 
-// ══════════════════════════
-// PITCH RENDER
-// ══════════════════════════
 function renderPitch(){
   const pitch=document.getElementById('pitch');
   pitch.querySelectorAll('.pcard').forEach(e=>e.remove());
@@ -482,112 +531,59 @@ function makeCard(p,idx,x,y){
   d.className='pcard';d.style.left=x+'%';d.style.top=y+'%';
   d.dataset.pid=p.id;d.dataset.idx=idx;
   const imgContent=p.imgSrc
-    ?`<img src="${p.imgSrc}" loading="lazy" onerror="this.style.display='none'" alt="${p.name}">`
+    ?`<img src="${p.imgSrc}" onerror="this.style.display='none'" alt="${p.name}">`
     :`<div class="av-init">${initials(p.name)}</div>`;
   d.innerHTML=`<div class="av">${imgContent}<div class="posbadge">${p.short}</div></div><div class="pname">${lastName(p.name)}</div><div class="pval">${p.value||'-'}</div>`;
-
-  d.addEventListener('click',e=>{
-    e.stopPropagation();
-    handleCardClick('pitch',idx,p,d);
-  });
-
-  setupDrag(d,idx);
-  return d;
+  d.addEventListener('click',e=>{e.stopPropagation();handleCardClick('pitch',idx,p,d)});
+  setupDrag(d,idx);return d;
 }
 
-// ══════════════════════════
-// SWAP LOGIC
-// ══════════════════════════
+// FIX 2: Mode-aware card click
 function handleCardClick(type,idx,p,el){
-  // If nothing selected → select this
+  if(appMode==='stats'){
+    openSM(p);return;
+  }
+  // Swap mode
   if(!ST.selected){
     ST.selected={type,idx};
     el.classList.add('selected');
     showSwapHint(true);
-    addSwapTargetHints(type,idx);
+    // Highlight other cards as targets
+    document.querySelectorAll('.pcard').forEach(c=>{
+      if(!(c.dataset.idx==idx&&type==='pitch'))c.classList.add('swap-target');
+    });
+    document.querySelectorAll('.bpl').forEach(b=>{
+      if(!(b.dataset.idx==idx&&type==='bench'))b.classList.add('swap-target');
+    });
     return;
   }
-  // If same element → deselect
-  const same=(ST.selected.type===type&&ST.selected.idx===idx);
-  if(same){
-    clearSwapUI();
-    return;
-  }
-  // Different element → SWAP
-  doSwap(ST.selected, {type,idx});
+  if(ST.selected.type===type&&ST.selected.idx==idx){clearSwapUI();return}
+  doSwap(ST.selected,{type,idx});
 }
 
-function doSwap(a, b){
-  // a and b are {type:'pitch'|'bench', idx}
-  let pa = a.type==='pitch' ? ST.starters[a.idx] : ST.bench[a.idx];
-  let pb = b.type==='pitch' ? ST.starters[b.idx] : ST.bench[b.idx];
-
-  // Swap in arrays
-  if(a.type==='pitch') ST.starters[a.idx]=pb;
-  else ST.bench[a.idx]=pb;
-
-  if(b.type==='pitch') ST.starters[b.idx]=pa;
-  else ST.bench[b.idx]=pa;
-
-  clearSwapUI();
-  renderPitch();
-  renderBench();
+function doSwap(a,b){
+  const pa=a.type==='pitch'?ST.starters[a.idx]:ST.bench[a.idx];
+  const pb=b.type==='pitch'?ST.starters[b.idx]:ST.bench[b.idx];
+  if(a.type==='pitch')ST.starters[a.idx]=pb; else ST.bench[a.idx]=pb;
+  if(b.type==='pitch')ST.starters[b.idx]=pa; else ST.bench[b.idx]=pa;
+  clearSwapUI();renderPitch();renderBench();
   showToast(`${lastName(pa.name)} ↔ ${lastName(pb.name)}`);
 }
-
-function addSwapTargetHints(selType,selIdx){
-  // Hint all other pitch cards
-  document.querySelectorAll('.pcard').forEach(c=>{
-    if(parseInt(c.dataset.idx)!==selIdx||selType!=='pitch') c.classList.add('swap-target');
-  });
-  // Hint all bench players
-  document.querySelectorAll('.bpl').forEach(b=>{
-    if(parseInt(b.dataset.idx)!==selIdx||selType!=='bench') b.classList.add('swap-target');
-  });
-}
-
 function clearSwapUI(){
   ST.selected=null;
   document.querySelectorAll('.pcard').forEach(c=>c.classList.remove('selected','swap-target'));
   document.querySelectorAll('.bpl').forEach(b=>b.classList.remove('selected','swap-target'));
   showSwapHint(false);
 }
+function showSwapHint(v){document.getElementById('swaphint').classList.toggle('show',v)}
 
-function showSwapHint(v){
-  document.getElementById('swaphint').classList.toggle('show',v);
-}
-
-// Click on pitch background → deselect
-document.getElementById('pitch')?.addEventListener('click',e=>{
-  if(e.target.id==='pitch'||e.target.classList.contains('pcl')||
-     e.target.classList.contains('pcc')||e.target.classList.contains('pcd')){
-    clearSwapUI();
-  }
-});
-
-// ══════════════════════════
-// DRAG (hold to drag, tap to select)
-// ══════════════════════════
 function setupDrag(card,idx){
-  let drag=false,sx,sy,sl,st2,ht,moved=false;
+  let drag=false,sx,sy,sl,st2,ht;
   const gp=()=>document.getElementById('pitch');
-  const start=(cx,cy)=>{
-    moved=false;
-    ht=setTimeout(()=>{
-      drag=true;card.classList.add('drag');
-      sl=parseFloat(card.style.left);st2=parseFloat(card.style.top);sx=cx;sy=cy;
-    },300);
-  };
-  const move=(cx,cy)=>{
-    if(!drag)return;moved=true;
-    const r=gp().getBoundingClientRect();
-    const nx=Math.max(4,Math.min(96,sl+(cx-sx)/r.width*100));
-    const ny=Math.max(4,Math.min(96,st2+(cy-sy)/r.height*100));
-    card.style.left=nx+'%';card.style.top=ny+'%';
-    ST.overrides[idx]={x:nx,y:ny};
-  };
+  const start=(cx,cy)=>{ht=setTimeout(()=>{drag=true;card.classList.add('drag');card.dataset.dragged='1';sl=parseFloat(card.style.left);st2=parseFloat(card.style.top);sx=cx;sy=cy},350)};
+  const move=(cx,cy)=>{if(!drag)return;const r=gp().getBoundingClientRect();const nx=Math.max(4,Math.min(96,sl+(cx-sx)/r.width*100));const ny=Math.max(4,Math.min(96,st2+(cy-sy)/r.height*100));card.style.left=nx+'%';card.style.top=ny+'%';ST.overrides[idx]={x:nx,y:ny}};
   const end=()=>{clearTimeout(ht);drag=false;card.classList.remove('drag')};
-  card.addEventListener('touchstart',e=>{start(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+  card.addEventListener('touchstart',e=>start(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
   card.addEventListener('touchmove',e=>{e.preventDefault();move(e.touches[0].clientX,e.touches[0].clientY)},{passive:false});
   card.addEventListener('touchend',end);
   card.addEventListener('mousedown',e=>start(e.clientX,e.clientY));
@@ -595,13 +591,10 @@ function setupDrag(card,idx){
   document.addEventListener('mouseup',end);
 }
 
-// ══════════════════════════
-// BENCH
-// ══════════════════════════
 function renderBench(){
   document.getElementById('bs').innerHTML=ST.bench.map((p,i)=>{
     const imgContent=p.imgSrc
-      ?`<img src="${p.imgSrc}" loading="lazy" onerror="this.style.display='none'" alt="${p.name}">`
+      ?`<img src="${p.imgSrc}" onerror="this.style.display='none'" alt="${p.name}">`
       :`<div class="bav-init">${initials(p.name)}</div>`;
     return`<div class="bpl" data-pid="${p.id}" data-idx="${i}" onclick="handleBenchClick(${i},this)">
       <div class="bav">${imgContent}</div>
@@ -612,51 +605,27 @@ function renderBench(){
 }
 
 function handleBenchClick(idx,el){
+  if(appMode==='stats'){openSM(ST.bench[idx]);return}
   const p=ST.bench[idx];
-  // If something selected on pitch → swap
-  if(ST.selected&&ST.selected.type==='pitch'){
-    doSwap(ST.selected,{type:'bench',idx});
+  if(!ST.selected){
+    ST.selected={type:'bench',idx};
+    el.classList.add('selected');
+    showSwapHint(true);
+    document.querySelectorAll('.pcard').forEach(c=>c.classList.add('swap-target'));
+    document.querySelectorAll('.bpl').forEach(b=>{if(b.dataset.idx!=idx)b.classList.add('swap-target')});
     return;
   }
-  // If same bench player selected → deselect
-  if(ST.selected&&ST.selected.type==='bench'&&ST.selected.idx===idx){
-    clearSwapUI();
-    return;
-  }
-  // If another bench player selected → swap bench to bench
-  if(ST.selected&&ST.selected.type==='bench'){
-    doSwap(ST.selected,{type:'bench',idx});
-    return;
-  }
-  // Nothing selected:
-  // Short tap = select for swap
-  ST.selected={type:'bench',idx};
-  el.classList.add('selected');
-  showSwapHint(true);
-  addSwapTargetHints('bench',idx);
+  if(ST.selected.type==='bench'&&ST.selected.idx==idx){clearSwapUI();return}
+  doSwap(ST.selected,{type:'bench',idx});
 }
 
-// ══════════════════════════
-// FORMATIONS
-// ══════════════════════════
 function renderFormations(){document.getElementById('fgrid').innerHTML=FLIST.map(f=>`<button class="fbtn ${f===ST.formation?'active':''}" onclick="selectF('${f}')">${f}</button>`).join('')}
-function selectF(f){
-  ST.formation=f;ST.overrides={};
-  document.getElementById('cfm').textContent=f;
-  document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active',b.textContent===f));
-  if(ST.starters.length)renderPitch();
-  closeFM();
-}
+function selectF(f){ST.formation=f;ST.overrides={};document.getElementById('cfm').textContent=f;document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active',b.textContent===f));if(ST.starters.length)renderPitch();closeFM()}
 function openFM(){document.getElementById('fmod').classList.add('open')}
 function closeFM(){document.getElementById('fmod').classList.remove('open')}
 
-// ══════════════════════════
-// STATS MODAL
-// ══════════════════════════
 function openSM(p){
   if(typeof p==='string'){try{p=JSON.parse(p)}catch(e){return}}
-  // Only open stats if NOT in swap mode
-  if(ST.selected) return;
   SS.player=p;SS.si=0;SS.ci=0;SS.cache={};
   const imgContent=p.imgSrc
     ?`<img src="${p.imgSrc}" onerror="this.style.display='none'" alt="${p.name}">`
@@ -690,13 +659,13 @@ async function drawTab(i){
   if(i===0||i===1){
     const key=`s_${p.id}_${SS.si}_${SS.ci}`;
     if(!SS.cache[key]){
-      document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>İstatistikler yükleniyor...</div></div>';
+      document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>Yükleniyor...</div></div>';
       SS.cache[key]=mockStats(p,SEASONS[SS.si],COMPS[SS.ci]);
     }
     i===0?drawMain(SS.cache[key],p):drawDetail(SS.cache[key]);
   }else if(i===2){await drawTransfers(p)}
   else if(i===3){await drawMarket(p)}
-  else{drawProfile(p)}
+  else drawProfile(p);
 }
 
 async function drawTransfers(p){
@@ -704,7 +673,7 @@ async function drawTransfers(p){
   try{
     const d=await tmGet(`/players/transfers?id=${p.id}`);
     const list=d.data||d.transfers||[];
-    if(!Array.isArray(list)||!list.length) throw new Error('empty');
+    if(!Array.isArray(list)||!list.length)throw new Error('empty');
     document.getElementById('smbody').innerHTML=
       '<div style="font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase">Transfer Geçmişi</div>'+
       list.slice(0,15).map(t=>`<div class="titem"><div class="tdate">${t.date||t.season||'—'}</div><div style="font-size:14px">${(t.type==='In'||t.direction==='in')?'⬅':'➡'}</div><div class="tclub">${t.from?.name||t.to?.name||t.club||'—'}</div><div class="tfee">${t.fee||t.transferFee||'—'}</div></div>`).join('');
@@ -712,12 +681,12 @@ async function drawTransfers(p){
 }
 
 async function drawMarket(p){
-  document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>Piyasa değeri yükleniyor...</div></div>';
-  const hdr=`<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px"><div style="font-size:10px;color:var(--text3);margin-bottom:4px;letter-spacing:1px;text-transform:uppercase">Güncel Piyasa Değeri</div><div style="font-family:'Bebas Neue',cursive;font-size:36px;color:var(--gold)">${p.value||'-'}</div></div>`;
+  document.getElementById('smbody').innerHTML='<div class="sload"><div class="spin"></div><div>Yükleniyor...</div></div>';
+  const hdr=`<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:13px;margin-bottom:13px"><div style="font-size:10px;color:var(--text3);margin-bottom:4px;letter-spacing:1px;text-transform:uppercase">Güncel Piyasa Değeri</div><div style="font-family:'Bebas Neue',cursive;font-size:34px;color:var(--gold)">${p.value||'-'}</div></div>`;
   try{
     const d=await tmGet(`/players/market-value-history?id=${p.id}`);
     const hist=d.data||d.history||[];
-    if(!Array.isArray(hist)||!hist.length) throw new Error('empty');
+    if(!Array.isArray(hist)||!hist.length)throw new Error('empty');
     document.getElementById('smbody').innerHTML=hdr+'<div style="font-size:10px;color:var(--text3);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase">Değer Geçmişi</div>'+
       hist.slice(0,20).map(h=>`<div class="mpoint"><span class="mdate">${h.date||h.season||h.year||'—'}</span><span class="mval">${h.value||h.marketValue||'—'}</span></div>`).join('');
   }catch(e){document.getElementById('smbody').innerHTML=hdr+'<div style="padding:20px;text-align:center;color:var(--text3)">Geçmiş verisi bulunamadı</div>'}
@@ -728,9 +697,6 @@ function drawProfile(p){
   document.getElementById('smbody').innerHTML=rows.map(([l,v])=>`<div class="srow"><span class="srl">${l}</span><span class="srv">${v}</span></div>`).join('');
 }
 
-// ══════════════════════════
-// STATS (mock)
-// ══════════════════════════
 function srd(seed,min,max){const s=seed%2147483647;return Math.floor(((s*16807+49297)%233280)/233280*(max-min+1)+min)}
 function mockStats(p,season,comp){
   const seed=(p.name+season+comp).split('').reduce((a,c)=>a+c.charCodeAt(0),0);
@@ -760,24 +726,21 @@ function drawMain(s,p){
 }
 function drawDetail(s){
   const bars=[{l:'Pas İsabeti',v:+s.passPct||0,m:100},{l:'Hava Topu %',v:+s.aerialsW||0,m:100},{l:'Taklel',v:+s.tackles||0,m:100},{l:'Top Kapma',v:+s.interceptions||0,m:100},{l:'Çapraz Pas',v:+s.crosses||0,m:80},{l:'Şut/maç x10',v:Math.round((+s.shotsPG||0)*10),m:35},{l:'Frikik Yaptırma',v:+s.foulsW||0,m:60}];
-  document.getElementById('smbody').innerHTML=`<div class="srow"><span class="srl">Faul</span><span class="srv">${s.foulsC}</span></div><div class="srow"><span class="srl">Ofsayt</span><span class="srv">${s.offsides}</span></div><div class="srow"><span class="srl">Dribling</span><span class="srv">${s.dribbles}/maç</span></div><hr style="border-color:var(--border);margin:10px 0">${bars.map(b=>`<div class="barrow"><div class="barlbl"><span>${b.l}</span><span>${b.v}${b.m===100?'%':''}</span></div><div class="barbg"><div class="barfill" style="width:${Math.min(100,(b.v/b.m*100)).toFixed(1)}%"></div></div></div>`).join('')}`;
+  document.getElementById('smbody').innerHTML=`<div class="srow"><span class="srl">Faul</span><span class="srv">${s.foulsC}</span></div><div class="srow"><span class="srl">Ofsayt</span><span class="srv">${s.offsides}</span></div><div class="srow"><span class="srl">Dribling</span><span class="srv">${s.dribbles}/maç</span></div><hr style="border-color:var(--border);margin:9px 0">${bars.map(b=>`<div class="barrow"><div class="barlbl"><span>${b.l}</span><span>${b.v}${b.m===100?'%':''}</span></div><div class="barbg"><div class="barfill" style="width:${Math.min(100,(b.v/b.m*100)).toFixed(1)}%"></div></div></div>`).join('')}`;
 }
 async function chS(d){SS.si=Math.max(0,Math.min(SEASONS.length-1,SS.si+d));SS.cache={};await drawTab(ST.ctab)}
 async function chC(i,el){SS.ci=i;document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));el.classList.add('active');SS.cache={};await drawTab(ST.ctab)}
 
-// ══════════════════════════
-// MOCK SQUAD
-// ══════════════════════════
-const MFN=['Ahmet','Emre','Kerem','Ozan','Hakan','Arda','Serdar','Lucas','Marco','Carlos','João','Kevin','Leon','Kylian','Erling','Vinicius','Phil','Bukayo','Gavi','Pedri'];
+// Mock squad
+const MFN=['Ahmet','Emre','Kerem','Ozan','Hakan','Arda','Lucas','Marco','Carlos','João','Kevin','Leon','Kylian','Erling','Vinicius','Phil','Bukayo','Gavi','Pedri','Jude'];
 const MLN=['Yılmaz','Demir','Çelik','Güler','Kabak','Müller','Hernandez','Alves','Fernandez','Modric','Salah','Kane','Bellingham','Haaland','Saka','Rice','Wirtz','Musiala','Mbappe','Osimhen'];
 const MPOS=[{p:'Goalkeeper',s:'GK'},{p:'Centre-Back',s:'CB'},{p:'Centre-Back',s:'CB'},{p:'Left-Back',s:'LB'},{p:'Right-Back',s:'RB'},{p:'Central Midfield',s:'CM'},{p:'Central Midfield',s:'CM'},{p:'Attacking Midfield',s:'AM'},{p:'Left Winger',s:'LW'},{p:'Right Winger',s:'RW'},{p:'Centre-Forward',s:'CF'},{p:'Goalkeeper',s:'GK'},{p:'Centre-Back',s:'CB'},{p:'Left-Back',s:'LB'},{p:'Central Midfield',s:'CM'},{p:'Attacking Midfield',s:'AM'},{p:'Centre-Forward',s:'CF'}];
 const MVALS=['3 Mio. €','5 Mio. €','8 Mio. €','12 Mio. €','15 Mio. €','20 Mio. €','25 Mio. €','35 Mio. €','50 Mio. €','70 Mio. €','100 Mio. €'];
-const MNATS=['Türkiye','Brezilya','Arjantin','Fransa','İspanya','Almanya','İtalya','Hollanda','İngiltere'];
 function srnd(s){let x=s%2147483647;return()=>{x=(x*16807)%2147483647;return(x-1)/2147483646}}
 function mockSquad(name){
   const r=srnd(name.split('').reduce((a,c)=>a+c.charCodeAt(0),0));
   const pick=a=>a[Math.floor(r()*a.length)];
-  return MPOS.map((p,i)=>({id:String(i),name:pick(MFN)+' '+pick(MLN),pos:p.p,short:p.s,imgSrc:'',value:pick(MVALS),number:String(i+1),age:String(18+Math.floor(r()*18)),nat:pick(MNATS),foot:'',height:'',dob:''}));
+  return MPOS.map((p,i)=>({id:String(i),name:pick(MFN)+' '+pick(MLN),pos:p.p,short:p.s,imgSrc:'',value:pick(MVALS),number:String(i+1),age:String(18+Math.floor(r()*18)),nat:'',foot:'',height:'',dob:''}));
 }
 
 function showL(v,msg){document.getElementById('lo').style.display=v?'flex':'none';if(msg)document.getElementById('ltxt').textContent=msg}
